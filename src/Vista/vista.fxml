@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="395.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.VistaController">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="769.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Menu">
+            <items>
+              <MenuItem fx:id="item" mnemonicParsing="false" onAction="#click" text="Administrador" />
+                  <Menu mnemonicParsing="false" text="Sistema">
+                    <items>
+                      <MenuItem fx:id="item1" mnemonicParsing="false" onAction="#click1" text="Revición de Recurso" />
+                        <MenuItem fx:id="item2" mnemonicParsing="false" onAction="#click1" text="Recepción de Recurso" />
+                    </items>
+                  </Menu>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Solicitudes de Reserva">
+            <items>
+              <MenuItem fx:id="item3" mnemonicParsing="false" onAction="#click3" text="Aprobadas" />
+                  <MenuItem fx:id="item4" mnemonicParsing="false" onAction="#click4" text="Rechazadas" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Solicitudes de Reserva Pendiente">
+            <items>
+              <MenuItem fx:id="item5" mnemonicParsing="false" onAction="#click5" text="Pendientes" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

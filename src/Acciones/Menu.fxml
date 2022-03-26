@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acciones.MenuController">
+   <children>
+      <TabPane layoutY="-1.0" prefHeight="482.0" prefWidth="841.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Gestionar Organizaciones">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="861.0">
+                     <children>
+                        <TabPane layoutY="-1.0" prefHeight="455.0" prefWidth="861.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Crear Organización">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="150.0" layoutY="105.0" prefHeight="23.0" prefWidth="186.0" text="Nombre de Organización:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="150.0" layoutY="154.0" text="Dirección:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="148.0" layoutY="199.0" text="Telefono:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="45.0" layoutY="25.0" text="CREAR ORGANIZACIÓN">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="147.0" layoutY="244.0" text="Correo Electronico:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text" layoutX="392.0" layoutY="104.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <TextField fx:id="Text1" layoutX="392.0" layoutY="150.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <TextField fx:id="Text2" layoutX="392.0" layoutY="197.0" prefHeight="25.0" prefWidth="123.0" />
+                                          <TextField fx:id="Text3" layoutX="392.0" layoutY="242.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Separator layoutX="36.0" layoutY="71.0" prefHeight="4.0" prefWidth="760.0" />
+                                          <Label layoutX="149.0" layoutY="308.0" text="Activar">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <CheckBox fx:id="check" layoutX="392.0" layoutY="310.0" mnemonicParsing="false" />
+                                          <Separator layoutX="35.0" layoutY="389.0" prefHeight="1.0" prefWidth="760.0" />
+                                          <Button fx:id="ag" layoutX="241.0" layoutY="406.0" mnemonicParsing="false" onAction="#agregar" text="Agregar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="cancel" layoutX="479.0" layoutY="406.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Modificar Organización">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="150.0" layoutY="106.0" prefHeight="23.0" prefWidth="186.0" text="Usuario:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="151.0" layoutY="149.0" text="Dirección:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="151.0" layoutY="190.0" text="Telefono:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="45.0" layoutY="26.0" text="MODIFICAR ORGANIZACIÓN">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="154.0" layoutY="230.0" text="Correo Electronico:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text4" layoutX="392.0" layoutY="105.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <TextField fx:id="Text5" layoutX="392.0" layoutY="145.0" prefHeight="25.0" prefWidth="282.0" />
+                                          <TextField fx:id="Text6" layoutX="392.0" layoutY="186.0" prefHeight="25.0" prefWidth="125.0" />
+                                          <TextField fx:id="Text7" layoutX="392.0" layoutY="226.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Separator layoutX="36.0" layoutY="72.0" prefHeight="0.0" prefWidth="760.0" />
+                                          <Separator layoutX="35.0" layoutY="388.0" prefHeight="5.0" prefWidth="760.0" />
+                                          <Button fx:id="mod" layoutX="241.0" layoutY="407.0" mnemonicParsing="false" onAction="#modificar" text="Modificar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="cancel" layoutX="479.0" layoutY="407.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <TableView fx:id="Tabla" layoutX="75.0" layoutY="270.0" prefHeight="101.0" prefWidth="682.0">
+                                            <columns>
+                                              <TableColumn fx:id="cod" prefWidth="57.0" text="Codigo" />
+                                              <TableColumn fx:id="orga" prefWidth="110.0" text="Organización" />
+                                                <TableColumn fx:id="usu" prefWidth="120.0" text="Usuario" />
+                                                <TableColumn fx:id="direc" prefWidth="125.0" text="Dirección" />
+                                                <TableColumn fx:id="tel" minWidth="0.0" prefWidth="84.0" text="Telefono" />
+                                                <TableColumn fx:id="corr" prefWidth="200.0" text="Correo Electronico" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Activar/Inactivar">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="150.0" layoutY="106.0" prefHeight="23.0" prefWidth="186.0" text="Organizacion:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="150.0" layoutY="155.0" text="Activar:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="148.0" layoutY="200.0" text="Inactivar:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="44.0" layoutY="29.0" prefHeight="26.0" prefWidth="429.0" text="ACTIVAR E INACTIVAR ORGANIZACIÓN">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text8" layoutX="392.0" layoutY="105.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Separator layoutX="36.0" layoutY="72.0" prefHeight="2.0" prefWidth="760.0" />
+                                          <CheckBox fx:id="check1" layoutX="392.0" layoutY="155.0" mnemonicParsing="false" />
+                                          <Separator layoutX="35.0" layoutY="387.0" prefHeight="6.0" prefWidth="760.0" />
+                                          <Button fx:id="camb" layoutX="241.0" layoutY="407.0" mnemonicParsing="false" onAction="#cambiar" text="Cambiar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="cancel" layoutX="479.0" layoutY="407.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <CheckBox fx:id="check2" layoutX="392.0" layoutY="200.0" mnemonicParsing="false" />
+                                          <TableView fx:id="Tabla1" layoutX="67.0" layoutY="234.0" prefHeight="135.0" prefWidth="682.0">
+                                             <columns>
+                                                <TableColumn prefWidth="57.0" text="Codigo" />
+                                                <TableColumn prefWidth="110.0" text="Organización" />
+                                                <TableColumn prefWidth="120.0" text="Usuario" />
+                                                <TableColumn prefWidth="125.0" text="Dirección" />
+                                                <TableColumn minWidth="0.0" prefWidth="84.0" text="Telefono" />
+                                                <TableColumn prefWidth="200.0" text="Correo Electronico" />
+                                             </columns>
+                                          </TableView>
+                                       </children></AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Gestionar Usuarios">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutY="5.0" prefHeight="450.0" prefWidth="861.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Crear Usuario">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="610.0">
+                                       <children>
+                                          <Label layoutX="148.0" layoutY="87.0" prefHeight="23.0" prefWidth="186.0" text="Nombre de Usuario:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="147.0" layoutY="131.0" text="Tipo de Usuario:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="147.0" layoutY="209.0" text="Contraseña:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="45.0" layoutY="19.0" text="CREAR USUARIO">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="147.0" layoutY="247.0" text="Telefono:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text9" layoutX="392.0" layoutY="86.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <TextField fx:id="Text10" layoutX="394.0" layoutY="205.0" prefHeight="25.0" prefWidth="122.0" />
+                                          <TextField fx:id="Text11" layoutX="393.0" layoutY="243.0" prefHeight="25.0" prefWidth="123.0" />
+                                          <TextField fx:id="Text12" layoutX="392.0" layoutY="280.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Separator layoutX="36.0" layoutY="65.0" prefHeight="2.0" prefWidth="760.0" />
+                                          <Label layoutX="147.0" layoutY="282.0" text="Correo Electronico">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <CheckBox fx:id="adm" layoutX="392.0" layoutY="131.0" mnemonicParsing="false" text="Administrador">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </CheckBox>
+                                          <Separator layoutX="35.0" layoutY="381.0" prefHeight="6.0" prefWidth="760.0" />
+                                          <Button fx:id="ag1" layoutX="241.0" layoutY="400.0" mnemonicParsing="false" onAction="#agregar1" text="Agregar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="cancel" layoutX="479.0" layoutY="400.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <CheckBox fx:id="rev" layoutX="392.0" layoutY="166.0" mnemonicParsing="false" text="Revisor de Recursos">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </CheckBox>
+                                          <TextField fx:id="Text13" layoutX="392.0" layoutY="319.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Label layoutX="147.0" layoutY="321.0" text="Dirección:">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <CheckBox fx:id="rec" layoutX="550.0" layoutY="166.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="150.0" text="Recepción de Recursos">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </CheckBox>
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Modificar Usuario">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="148.0" layoutY="78.0" prefHeight="23.0" prefWidth="186.0" text="Nombre de Usuario:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="147.0" layoutY="112.0" text="Tipo de Usuario:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="148.0" layoutY="164.0" text="Contraseña:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="45.0" layoutY="19.0" text="MODIFICAR USUARIO">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="148.0" layoutY="199.0" text="Telefono:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text14" layoutX="392.0" layoutY="77.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <TextField fx:id="Text15" layoutX="394.0" layoutY="160.0" prefHeight="25.0" prefWidth="122.0" />
+                                          <TextField fx:id="Text16" layoutX="394.0" layoutY="195.0" prefHeight="25.0" prefWidth="123.0" />
+                                          <TextField fx:id="Text17" layoutX="394.0" layoutY="228.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Separator layoutX="36.0" layoutY="65.0" prefHeight="2.0" prefWidth="760.0" />
+                                          <Label layoutX="148.0" layoutY="230.0" text="Correo Electronico">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <CheckBox fx:id="adm1" layoutX="393.0" layoutY="112.0" mnemonicParsing="false" text="Administrador">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </CheckBox>
+                                          <Separator layoutX="35.0" layoutY="381.0" prefHeight="6.0" prefWidth="760.0" />
+                                          <Button fx:id="mod1" layoutX="241.0" layoutY="400.0" mnemonicParsing="false" onAction="#modificar1" text="Modificar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="cancel" layoutX="479.0" layoutY="400.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <CheckBox fx:id="rev1" layoutX="393.0" layoutY="136.0" mnemonicParsing="false" text="Revisor de Recursos">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </CheckBox>
+                                          <TextField fx:id="Text18" layoutX="394.0" layoutY="262.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Label layoutX="148.0" layoutY="264.0" text="Dirección:">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <CheckBox fx:id="rec1" layoutX="550.0" layoutY="136.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="150.0" text="Recepción de Recursos">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </CheckBox>
+                                          <TableView fx:id="Tabla2" layoutX="74.0" layoutY="293.0" prefHeight="82.0" prefWidth="682.0">
+                                             <columns>
+                                                <TableColumn prefWidth="57.0" text="Codigo" />
+                                                <TableColumn prefWidth="110.0" text="Organización" />
+                                                <TableColumn prefWidth="120.0" text="Usuario" />
+                                                <TableColumn prefWidth="125.0" text="Dirección" />
+                                                <TableColumn minWidth="0.0" prefWidth="84.0" text="Telefono" />
+                                                <TableColumn prefWidth="200.0" text="Correo Electronico" />
+                                             </columns>
+                                          </TableView>
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Activar/Inactivar">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="150.0" layoutY="100.0" prefHeight="23.0" prefWidth="186.0" text="Usuario:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="150.0" layoutY="149.0" text="Activar:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="148.0" layoutY="194.0" text="Inactivar:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="44.0" layoutY="23.0" prefHeight="23.0" prefWidth="415.0" text="ACTIVAR E INACTIVAR USUARIOS">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text19" layoutX="392.0" layoutY="99.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Separator layoutX="36.0" layoutY="66.0" prefHeight="2.0" prefWidth="760.0" />
+                                          <CheckBox fx:id="check3" layoutX="392.0" layoutY="149.0" mnemonicParsing="false" />
+                                          <Separator layoutX="35.0" layoutY="381.0" prefHeight="6.0" prefWidth="760.0" />
+                                          <Button fx:id="camb1" layoutX="241.0" layoutY="401.0" mnemonicParsing="false" onAction="#cambiar1" text="Cambiar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="cancel" layoutX="479.0" layoutY="401.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <CheckBox fx:id="check4" layoutX="392.0" layoutY="194.0" mnemonicParsing="false" />
+                                          <TableView fx:id="Tabla3" layoutX="67.0" layoutY="228.0" prefHeight="135.0" prefWidth="682.0">
+                                             <columns>
+                                                <TableColumn prefWidth="57.0" text="Codigo" />
+                                                <TableColumn prefWidth="110.0" text="Organización" />
+                                                <TableColumn prefWidth="120.0" text="Usuario" />
+                                                <TableColumn prefWidth="125.0" text="Dirección" />
+                                                <TableColumn minWidth="0.0" prefWidth="84.0" text="Telefono" />
+                                                <TableColumn prefWidth="200.0" text="Correo Electronico" />
+                                             </columns>
+                                          </TableView>
+                                       </children></AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Gestionar Recursos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutY="5.0" prefHeight="449.0" prefWidth="861.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Crear Recurso">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="449.0" prefWidth="830.0">
+                                       <children>
+                                          <Label layoutX="148.0" layoutY="104.0" prefHeight="23.0" prefWidth="186.0" text="Nombre de Recursos:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="147.0" layoutY="150.0" text="Requiere Aprobación:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="148.0" layoutY="216.0" text="Requiere Confirmacion de Entrega:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="45.0" layoutY="19.0" text="CREAR RECURSOS">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="147.0" layoutY="263.0" text="Tiempo Maximo de Uso:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text20" layoutX="391.0" layoutY="103.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <TextField fx:id="Text21" layoutX="391.0" layoutY="259.0" prefHeight="25.0" prefWidth="123.0" />
+                                          <TextField fx:id="Text22" layoutX="391.0" layoutY="309.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Separator layoutX="36.0" layoutY="65.0" prefHeight="4.0" prefWidth="760.0" />
+                                          <Label layoutX="147.0" layoutY="311.0" text="Costo:">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <CheckBox fx:id="check5" layoutX="399.0" layoutY="150.0" mnemonicParsing="false" />
+                                          <Separator layoutX="35.0" layoutY="383.0" prefHeight="1.0" prefWidth="760.0" />
+                                          <Button fx:id="ag2" layoutX="241.0" layoutY="400.0" mnemonicParsing="false" onAction="#agregar2" text="Agregar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="cancel" layoutX="479.0" layoutY="400.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <ComboBox fx:id="box" layoutX="478.0" layoutY="146.0" prefHeight="25.0" prefWidth="205.0" />
+                                          <CheckBox fx:id="check6" layoutX="399.0" layoutY="216.0" mnemonicParsing="false" />
+                                          <ComboBox fx:id="box1" layoutX="478.0" layoutY="212.0" prefHeight="25.0" prefWidth="205.0" />
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Actualizar Recurso">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="148.0" layoutY="80.0" prefHeight="23.0" prefWidth="186.0" text="Nombre de Recursos:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="148.0" layoutY="119.0" text="Requiere Aprobación:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="148.0" layoutY="172.0" text="Requiere Confirmacion de Entrega:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="45.0" layoutY="19.0" text="MODIFICAR RECURSOS">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="149.0" layoutY="213.0" text="Tiempo Maximo de Uso:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text23" layoutX="391.0" layoutY="79.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <TextField fx:id="Text24" layoutX="391.0" layoutY="209.0" prefHeight="25.0" prefWidth="123.0" />
+                                          <TextField fx:id="Text25" layoutX="391.0" layoutY="247.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Separator layoutX="36.0" layoutY="65.0" prefHeight="4.0" prefWidth="760.0" />
+                                          <Label layoutX="149.0" layoutY="249.0" text="Costo:">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <CheckBox fx:id="check7" layoutX="399.0" layoutY="119.0" mnemonicParsing="false" />
+                                          <Separator layoutX="35.0" layoutY="383.0" prefHeight="1.0" prefWidth="760.0" />
+                                          <Button fx:id="mod2" layoutX="241.0" layoutY="400.0" mnemonicParsing="false" onAction="#modificar2" text="Modificar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="cancel" layoutX="479.0" layoutY="400.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <ComboBox fx:id="box2" layoutX="478.0" layoutY="115.0" prefHeight="25.0" prefWidth="205.0" />
+                                          <CheckBox fx:id="check8" layoutX="399.0" layoutY="172.0" mnemonicParsing="false" />
+                                          <ComboBox fx:id="box3" layoutX="478.0" layoutY="168.0" prefHeight="25.0" prefWidth="205.0" />
+                                          <TableView fx:id="Tabla4" layoutX="59.0" layoutY="280.0" prefHeight="93.0" prefWidth="712.0">
+                                             <columns>
+                                                <TableColumn prefWidth="57.0" text="Codigo" />
+                                                <TableColumn fx:id="tabla4" prefWidth="106.0" text="Recurso" />
+                                                <TableColumn prefWidth="115.0" text="Usuario" />
+                                                <TableColumn prefWidth="115.0" text="Aprobacion" />
+                                                <TableColumn minWidth="0.0" prefWidth="115.0" text="Entrega" />
+                                                <TableColumn prefWidth="120.0" text="Tiempo de Uso" />
+                                                <TableColumn prefWidth="85.0" text="Costo" />
+                                             </columns>
+                                          </TableView>
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Activar/Inactivar">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="150.0" layoutY="100.0" prefHeight="23.0" prefWidth="186.0" text="Recurso:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="150.0" layoutY="149.0" text="Activar:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="148.0" layoutY="194.0" text="Inactivar:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="44.0" layoutY="23.0" prefHeight="23.0" prefWidth="415.0" text="ACTIVAR E INACTIVAR USUARIOS">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text26" layoutX="392.0" layoutY="99.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Separator layoutX="36.0" layoutY="66.0" prefHeight="2.0" prefWidth="760.0" />
+                                          <CheckBox fx:id="check9" layoutX="392.0" layoutY="149.0" mnemonicParsing="false" />
+                                          <Separator layoutX="35.0" layoutY="381.0" prefHeight="6.0" prefWidth="760.0" />
+                                          <Button fx:id="camb2" layoutX="241.0" layoutY="401.0" mnemonicParsing="false" onAction="#cambiar2" text="Cambiar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="cancel" layoutX="479.0" layoutY="401.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <CheckBox fx:id="check10" layoutX="392.0" layoutY="194.0" mnemonicParsing="false" />
+                                          <TableView fx:id="Tabla5" layoutX="60.0" layoutY="225.0" prefHeight="138.0" prefWidth="712.0">
+                                             <columns>
+                                                <TableColumn prefWidth="57.0" text="Codigo" />
+                                                <TableColumn prefWidth="106.0" text="Recurso" />
+                                                <TableColumn prefWidth="115.0" text="Usuario" />
+                                                <TableColumn prefWidth="115.0" text="Aprobacion" />
+                                                <TableColumn minWidth="0.0" prefWidth="115.0" text="Entrega" />
+                                                <TableColumn prefWidth="120.0" text="Tiempo de Uso" />
+                                                <TableColumn prefWidth="85.0" text="Costo" />
+                                             </columns>
+                                          </TableView>
+                                       </children></AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="b" layoutY="478.0" mnemonicParsing="false" onAction="#regresar" text="Regresar">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
