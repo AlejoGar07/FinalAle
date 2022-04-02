@@ -16,7 +16,6 @@ public class ProyectoFinal extends Application {
     @Override
     public void start(Stage primaryStage)  {
         try{
-        
         FXMLLoader cargar= new FXMLLoader();
         cargar.setLocation(ProyectoFinal.class.getResource("/Vista/vista.fxml"));
         Pane menu = (Pane) cargar.load();
@@ -30,9 +29,7 @@ public class ProyectoFinal extends Application {
     
     public static void main(String[] args) {
         launch(args);
-        
-        Conexion c=new Conexion();
-        c.Conectar();
+      
     }
     
 }

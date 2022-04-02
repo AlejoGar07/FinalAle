@@ -3,35 +3,38 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="395.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.VistaController">
-   <children>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="769.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.VistaController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Menu">
             <items>
-              <MenuItem fx:id="item" mnemonicParsing="false" onAction="#click" text="Administrador" />
+              <MenuItem mnemonicParsing="false" onAction="#admin" text="Administrador" />
                   <Menu mnemonicParsing="false" text="Sistema">
                     <items>
-                      <MenuItem fx:id="item1" mnemonicParsing="false" onAction="#click1" text="Revición de Recurso" />
-                        <MenuItem fx:id="item2" mnemonicParsing="false" onAction="#click1" text="Recepción de Recurso" />
+                      <MenuItem mnemonicParsing="false" onAction="#revicion" text="Revicion" />
+                        <MenuItem mnemonicParsing="false" text="Recepcion" />
                     </items>
                   </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Solicitudes de Reserva">
             <items>
-              <MenuItem fx:id="item3" mnemonicParsing="false" onAction="#click3" text="Aprobadas" />
-                  <MenuItem fx:id="item4" mnemonicParsing="false" onAction="#click4" text="Rechazadas" />
+              <MenuItem mnemonicParsing="false" text="Solicitudes de Reserva" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Solicitudes de Reserva Pendiente">
+          <Menu mnemonicParsing="false" text="Solicitudes de Reserva Pendientes">
             <items>
-              <MenuItem fx:id="item5" mnemonicParsing="false" onAction="#click5" text="Pendientes" />
+              <MenuItem mnemonicParsing="false" text="Solicitudes de Reserva Pendientes" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-   </children>
-</AnchorPane>
+   </top>
+   <center>
+      <Pane fx:id="container" prefHeight="517.0" prefWidth="850.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
