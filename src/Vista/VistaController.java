@@ -35,8 +35,8 @@ public class VistaController implements Initializable {
 			 Stage stage= new Stage();
 			 stage.setScene(scene);
 			 stage.showAndWait();
-		}catch(IOException e){
-			System.out.println(e.getMessage());
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 	}
 
@@ -50,8 +50,8 @@ public class VistaController implements Initializable {
 			 Stage stage= new Stage();
 			 stage.setScene(scene);
 			 stage.showAndWait();
-		}catch(IOException e){
-			System.out.println(e.getMessage());
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 	}
 	

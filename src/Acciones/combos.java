@@ -11,16 +11,20 @@ import javafx.collections.ObservableList;
 
 public class combos {
 	private String organizacion;
-	private String direccion;
-	private String telefono;
-	private String correo;
-	private String estado;
-
+	
 	public combos() {
 	}
 	public combos(String Organizacion){
 		this.organizacion = Organizacion;
 	}
+
+    public String getOrganizacion() {
+        return organizacion;
+    }
+
+    public void setOrganizacion(String organizacion) {
+        this.organizacion = organizacion;
+    }
 	
 	@Override	
 	public String toString(){
@@ -33,7 +37,7 @@ public class combos {
 	       String url = "jdbc:postgresql://localhost:5432/administrador";
 	       String user = "postgres";
 	       String password = "Ale0107";
-	       String s = ("select * from organizaciones");
+	       String s = ("select * from organizaciones order by Codigo");
 	        Connection con = DriverManager.getConnection(url,user,password);
 		PreparedStatement P = con.prepareStatement(s);
 	        ResultSet rs=P.executeQuery();

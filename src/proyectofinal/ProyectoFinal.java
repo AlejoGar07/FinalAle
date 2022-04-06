@@ -22,8 +22,8 @@ public class ProyectoFinal extends Application {
         Scene s = new Scene (menu);
         primaryStage.setScene(s);
         primaryStage.show();
-    }catch (IOException e){
-        System.out.println(e.getMessage());
+    }catch (Exception e){
+        e.printStackTrace();
     }
     }
     
