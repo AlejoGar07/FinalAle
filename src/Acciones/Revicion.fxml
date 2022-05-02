@@ -1,24 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="499.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acciones.RevicionController">
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acciones.RevicionController">
    <children>
-      <TabPane layoutY="1.0" prefHeight="478.0" prefWidth="844.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="1.0" prefHeight="517.0" prefWidth="864.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Gestionar Solucitud de Prestamo">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="824.0">
                      <children>
-                        <TabPane layoutY="-1.0" prefHeight="446.0" prefWidth="844.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane layoutY="-1.0" prefHeight="501.0" prefWidth="864.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
                           <tabs>
                             <Tab text="Reservar Recurso">
                               <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="449.0" prefWidth="776.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="449.0" prefWidth="776.0">
+                                       <children>
+                                          <Label layoutX="50.0" layoutY="23.0" text="GESTIONAR SOLICITUD">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator layoutX="50.0" layoutY="57.0" prefHeight="6.0" prefWidth="760.0" />
+                                          <Label layoutX="153.0" layoutY="75.0" prefHeight="23.0" prefWidth="186.0" text="Seleccionar Organización:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="153.0" layoutY="114.0" prefHeight="23.0" prefWidth="186.0" text="Seleccionar Recurso:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="box" layoutX="398.0" layoutY="74.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Label layoutX="153.0" layoutY="155.0" prefHeight="23.0" prefWidth="186.0" text="Nombre de la Actividad:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text" layoutX="398.0" layoutY="154.0" prefHeight="25.0" prefWidth="283.0">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                          <ComboBox fx:id="box1" layoutX="398.0" layoutY="113.0" prefHeight="25.0" prefWidth="283.0" />
+                                          <Label layoutX="153.0" layoutY="235.0" prefHeight="23.0" prefWidth="186.0" text="Descripción de la Actividad:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextArea fx:id="TextArea" layoutX="398.0" layoutY="235.0" prefHeight="90.0" prefWidth="283.0" />
+                                          <Label layoutX="153.0" layoutY="337.0" prefHeight="23.0" prefWidth="186.0" text="Fecha:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text1" layoutX="398.0" layoutY="336.0" prefHeight="25.0" prefWidth="283.0">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label layoutX="154.0" layoutY="375.0" prefHeight="23.0" prefWidth="186.0" text="Hora de Inicio:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="154.0" layoutY="411.0" prefHeight="23.0" prefWidth="186.0" text="Hora de Fin:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="Text2" layoutX="399.0" layoutY="374.0" prefHeight="25.0" prefWidth="125.0">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="Text3" layoutX="399.0" layoutY="410.0" prefHeight="25.0" prefWidth="125.0">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                          <Separator layoutX="51.0" layoutY="448.0" prefHeight="1.0" prefWidth="760.0" />
+                                          <Button fx:id="gestionar" layoutX="286.0" layoutY="463.0" mnemonicParsing="false" onAction="#gestionar" text="Gestionar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="cancel" layoutX="478.0" layoutY="463.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+                                             <font>
+                                                <Font name="Arial" size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Label layoutX="153.0" layoutY="191.0" prefHeight="23.0" prefWidth="186.0" text="Necesita Aprobación:">
+                                             <font>
+                                                <Font name="Arial" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <RadioButton fx:id="si" layoutX="398.0" layoutY="187.0" mnemonicParsing="false" text="Si Necesita">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="aprobacion" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="no" layoutX="398.0" layoutY="212.0" mnemonicParsing="false" text="No Necesita" toggleGroup="$aprobacion">
+                                             <font>
+                                                <Font name="Arial" size="12.0" />
+                                             </font>
+                                          </RadioButton>
+                                       </children></AnchorPane>
                               </content>
                             </Tab>
                             <Tab text="Modifcar Reserva">
@@ -39,7 +141,7 @@
           </Tab>
         </tabs>
       </TabPane>
-      <Button fx:id="b" layoutY="474.0" mnemonicParsing="false" onAction="#regresar" text="Regresar">
+      <Button fx:id="b" layoutY="517.0" mnemonicParsing="false" onAction="#regresar" text="Regresar">
          <font>
             <Font name="Arial" size="12.0" />
          </font>

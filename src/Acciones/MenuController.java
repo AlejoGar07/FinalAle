@@ -83,6 +83,8 @@ public class MenuController implements Initializable {
     @FXML
     private TextField Text12;
     @FXML
+    private TextField Text34;
+    @FXML
     private RadioButton adm;
     @FXML
     private RadioButton rev;
@@ -114,6 +116,8 @@ public class MenuController implements Initializable {
     private TextField Text16;
     @FXML
     private TextField Text17;
+    @FXML
+    private TextField Text35;
     @FXML
     private RadioButton adm1;
     @FXML
@@ -173,19 +177,22 @@ public class MenuController implements Initializable {
     @FXML
     private TextField Text20;
     @FXML
+    private CheckBox aprob;
+    @FXML
+    private CheckBox entreg;
+    @FXML
     private TextField Text21;
     @FXML
     private TextField Text22;
-    @FXML
-    private CheckBox check5;
+    
     @FXML
     private Button ag2;
     @FXML
-    private ComboBox<?> box;
+    private ComboBox<combos> box6;
     @FXML
-    private CheckBox check6;
+    private ComboBox<recurso> box;
     @FXML
-    private ComboBox<?> box1;
+    private ComboBox<recurso> box1;
     @FXML
     private TextField Text23;
     @FXML
@@ -193,19 +200,51 @@ public class MenuController implements Initializable {
     @FXML
     private TextField Text25;
     @FXML
-    private CheckBox check7;
+    private CheckBox aprob1;
+    @FXML
+    private CheckBox entreg1;
+    @FXML
+    private TextField Text31;
+    @FXML
+    private TextField Text32;
+    @FXML
+    private TextField Text33;
     @FXML
     private Button mod2;
     @FXML
-    private ComboBox<?> box2;
+    private ComboBox<combos> box7;
     @FXML
-    private CheckBox check8;
+    private ComboBox<recurso> box2;
+     @FXML
+    private ComboBox<recurso> box3;
     @FXML
-    private ComboBox<?> box3;
+    private TextField Text36;
     @FXML
-    private TableView<?> Tabla4;
+    private TextField Text37;
+    @FXML
+    private TextField Text38;
+    @FXML
+    private TableView<Tablasss> Tabla4;
+    @FXML
+    private TableColumn<Tablasss, String> organn;
+    @FXML
+    private TableColumn<Tablasss, String> recur;
+    @FXML
+    private TableColumn<Tablasss, String> aprobaci;
+    @FXML
+    private TableColumn<Tablasss, String> usua;
+    @FXML
+    private TableColumn<Tablasss, String> entregaa;
+    @FXML
+    private TableColumn<Tablasss, String> usuae;
+    @FXML
+    private TableColumn<Tablasss, Integer> tiemp;
+    @FXML
+    private TableColumn<Tablasss, Integer> costo;
     @FXML
     private TextField Text26;
+    @FXML
+    private TextField Text39;
     @FXML
     private CheckBox check9;
     @FXML
@@ -213,32 +252,66 @@ public class MenuController implements Initializable {
     @FXML
     private CheckBox check10;
     @FXML
-    private TableView<?> Tabla5;
+    private TableView<Tablasss> Tabla5;
+    @FXML
+    private TableColumn<Tablasss, String> organn1;
+    @FXML
+    private TableColumn<Tablasss, String> recur1;
+    @FXML
+    private TableColumn<Tablasss, String> aprobaci1;
+    @FXML
+    private TableColumn<Tablasss, String> usua1;
+    @FXML
+    private TableColumn<Tablasss, String> entregaa1;
+    @FXML
+    private TableColumn<Tablasss, String> usuae1;
+    @FXML
+    private TableColumn<Tablasss, Integer> tiemp1;
+    @FXML
+    private TableColumn<Tablasss, Integer> costo1;
+    @FXML
+    private TableColumn<Tablasss, String> estadoo;
     
 	
             boolean activo=false;
 	    boolean activo1=false;
             boolean activo2=false;
             boolean activo3=false;
+            boolean activo4=false;
+            boolean activo5=false;
             boolean Admin=false;
             boolean Revi=false;
             boolean Recer=false;
             boolean Admin1=false;
             boolean Revi1=false;
             boolean Recer1=false;
+            boolean Apro=false;
+            boolean Entre=false;
+            boolean Apro1=false;
+            boolean Entre1=false;
     @FXML
     private ToggleGroup tipoos;
-    @FXML
-    private TableColumn<?, ?> tabla4;
-            
+    
+    private CheckBox check5;
+    private CheckBox check6;
+    private CheckBox check7;
+    private CheckBox check8;
+   
 @Override
     public void initialize(URL url, ResourceBundle rb) {
-    
+      box.setDisable(true);
+      box1.setDisable(true);
+      box2.setDisable(true);
+      box3.setDisable(true);
       initcombo();
+      initrecurso();
+      initrecursos();
       mouse();
       mouse1();
       mouse2();
       mouse3();
+      mouse4();
+      mouse5();
       Tablas T= new Tablas();
       ObservableList<Tablas> items=T.getTabla();
       this.orga.setCellValueFactory(new PropertyValueFactory("organizacion"));
@@ -274,6 +347,29 @@ public class MenuController implements Initializable {
       this.direcc1.setCellValueFactory(new PropertyValueFactory("direccion"));
       this.estado.setCellValueFactory(new PropertyValueFactory("estado"));
       this.Tabla3.setItems(itemss);
+      
+      Tablasss Taa= new Tablasss();
+      ObservableList<Tablasss> itemsss=Taa.getTablass();
+      this.organn.setCellValueFactory(new PropertyValueFactory("Organizacion"));
+      this.recur.setCellValueFactory(new PropertyValueFactory("Recurso"));
+      this.aprobaci.setCellValueFactory(new PropertyValueFactory("Aprobacion"));
+      this.usua.setCellValueFactory(new PropertyValueFactory("Usuarioa"));
+      this.entregaa.setCellValueFactory(new PropertyValueFactory("Entrega"));
+      this.usuae.setCellValueFactory(new PropertyValueFactory("Usuarioe"));
+      this.tiemp.setCellValueFactory(new PropertyValueFactory("Tiempo"));
+      this.costo.setCellValueFactory(new PropertyValueFactory("Costo"));
+      this.Tabla4.setItems(itemsss);
+      
+      this.organn1.setCellValueFactory(new PropertyValueFactory("Organizacion"));
+      this.recur1.setCellValueFactory(new PropertyValueFactory("Recurso"));
+      this.aprobaci1.setCellValueFactory(new PropertyValueFactory("Aprobacion"));
+      this.usua1.setCellValueFactory(new PropertyValueFactory("Usuarioa"));
+      this.entregaa1.setCellValueFactory(new PropertyValueFactory("Entrega"));
+      this.usuae1.setCellValueFactory(new PropertyValueFactory("Usuarioe"));
+      this.tiemp1.setCellValueFactory(new PropertyValueFactory("Tiempo"));
+      this.costo1.setCellValueFactory(new PropertyValueFactory("Costo"));
+      this.estadoo.setCellValueFactory(new PropertyValueFactory("Estado"));
+      this.Tabla5.setItems(itemsss);
     }    
     
     public void initcombo(){
@@ -281,8 +377,23 @@ public class MenuController implements Initializable {
 	 ObservableList<combos> items=C.getcombo();
 	 this.box4.setItems(items);
 	 this.box5.setItems(items);
+         this.box6.setItems(items);
+         this.box7.setItems(items);
+         
+        
     }
-
+    public void initrecurso(){
+         recurso E=new recurso();  
+	 ObservableList<recurso> itemss=E.getrecurso();
+         this.box1.setItems(itemss);
+         this.box2.setItems(itemss);
+    }
+    public void initrecursos(){
+         recurso E=new recurso();  
+	 ObservableList<recurso> itemss=E.getrecursos();
+         this.box.setItems(itemss);
+         this.box3.setItems(itemss);
+    }
     @FXML
     private void regresar(ActionEvent event) {
         Stage stage= (Stage) this.b.getScene().getWindow();
@@ -322,6 +433,15 @@ public class MenuController implements Initializable {
         Text28.setText("");
         Text29.setText("");
         Text30.setText("");
+        Text31.setText("");
+        Text32.setText("");
+        Text33.setText("");
+        Text34.setText("");
+        Text35.setText("");
+        Text36.setText("");
+        Text37.setText("");
+        Text38.setText("");
+        Text39.setText("");
         adm.setSelected(false);
         rev.setSelected(false);
         rec.setSelected(false);
@@ -332,6 +452,10 @@ public class MenuController implements Initializable {
         check2.setSelected(false);
         check3.setSelected(false);
         check4.setSelected(false);
+        check5.setSelected(false);
+        check6.setSelected(false);
+        check7.setSelected(false);
+        check8.setSelected(false);
         
         
     }
@@ -375,12 +499,10 @@ public class MenuController implements Initializable {
         Text1.setText("");
         Text2.setText("");
         Text3.setText("");
-	
 	initcombo();
 	Tablas T= new Tablas();
 	ObservableList<Tablas> items=T.getTabla();
 	this.Tabla.setItems(items);
-	
 	ObservableList<Tablas> itemss=T.getTabla();
 	this.Tabla1.setItems(itemss);
 	}else{
@@ -600,7 +722,7 @@ public class MenuController implements Initializable {
     private void agregar1(ActionEvent event) {
 	    Conexion conect= new Conexion();
     try{
-    if(Text9.getText().equals("") || Text10.getText().equals("") || Text11.getText().equals("") || Text12.getText().equals("") || Text13.getText().equals("") || Text28.getText().equals("")){
+    if(Text9.getText().equals("") || Text10.getText().equals("") || Text11.getText().equals("") || Text12.getText().equals("") || Text13.getText().equals("") || Text28.getText().equals("") || Text34.getText().equals("")){
 	   Alert a=new Alert(Alert.AlertType.ERROR);
 	   a.setHeaderText(null);
 	   a.setTitle("ERROR");
@@ -615,12 +737,14 @@ public class MenuController implements Initializable {
       String Usu="";
       String Contra="";
       String Orga="";
+      String Nom="";
       String Direc="";
       int Tel=0;
       String Corr="";
       Usu=Text9.getText();
       Contra=Text10.getText();
       Orga=Text28.getText();
+      Nom=Text34.getText();
       Tel=Integer.parseInt(Text11.getText());
       Corr=Text12.getText();
       Direc=Text13.getText();
@@ -651,10 +775,12 @@ public class MenuController implements Initializable {
 		 System.out.println(Text9.getText());
 		 System.out.println(Text10.getText());
                  System.out.println(Text28.getText());
-		 System.out.println(Text11.getText());
+                 System.out.println(Text34.getText());
 		 System.out.println(Text12.getText());
-		 System.out.println(Text13.getText());	
-                 Conexion.writeToDatabase1(Id, Adm, Usu, Contra, Orga, Corr, Tel, Direc, Estado);
+                 System.out.println(Text11.getText());
+		 System.out.println(Text13.getText());
+                 Conexion.writeToDatabase1(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
+                 Conexion.writeToDatabasee1(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
@@ -666,6 +792,7 @@ public class MenuController implements Initializable {
         Text11.setText("");
         Text12.setText("");
         Text13.setText("");
+        Text34.setText("");
 	adm.setSelected(false);
 	initcombo(); 
         Tablass Ta= new Tablass();
@@ -677,10 +804,12 @@ public class MenuController implements Initializable {
 		 System.out.println(Text9.getText());
 		 System.out.println(Text10.getText());
                  System.out.println(Text28.getText());
-		 System.out.println(Text11.getText());
+                 System.out.println(Text34.getText());
 		 System.out.println(Text12.getText());
+                 System.out.println(Text11.getText());
 		 System.out.println(Text13.getText());	
-                 Conexion.writeToDatabase1(Id, Adm, Usu, Contra, Orga, Corr, Tel, Direc, Estado);
+                 Conexion.writeToDatabase1(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
+                 Conexion.writeToDatabasee2(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
@@ -692,6 +821,7 @@ public class MenuController implements Initializable {
         Text11.setText("");
         Text12.setText("");
         Text13.setText("");
+        Text34.setText("");
 	rev.setSelected(false);
 	initcombo(); 
 	Tablass Ta= new Tablass();
@@ -703,10 +833,12 @@ public class MenuController implements Initializable {
 		 System.out.println(Text9.getText());
 		 System.out.println(Text10.getText());
                  System.out.println(Text28.getText());
-		 System.out.println(Text11.getText());
+                 System.out.println(Text34.getText());
 		 System.out.println(Text12.getText());
+                 System.out.println(Text11.getText());
 		 System.out.println(Text13.getText());	
-                 Conexion.writeToDatabase1(Id, Adm, Usu, Contra, Orga, Corr, Tel, Direc, Estado);
+                 Conexion.writeToDatabase1(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
+                 Conexion.writeToDatabasee3(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
@@ -718,6 +850,7 @@ public class MenuController implements Initializable {
         Text11.setText("");
         Text12.setText("");
         Text13.setText("");
+        Text34.setText("");
 	rec.setSelected(false);
 	initcombo(); 
 	Tablass Ta= new Tablass();
@@ -753,7 +886,7 @@ public class MenuController implements Initializable {
     private void modificar1(ActionEvent event) {
         Conexion conect = new Conexion();
         try{
-	if(Text14.getText().equals("") || Text15.getText().equals("") || Text16.getText().equals("") || Text17.getText().equals("") || Text18.getText().equals("") || Text29.getText().equals("")){
+	if(Text14.getText().equals("") || Text15.getText().equals("") || Text16.getText().equals("") || Text17.getText().equals("") || Text18.getText().equals("") || Text29.getText().equals("")|| Text35.getText().equals("")){
 	   Alert a=new Alert(Alert.AlertType.ERROR);
 	   a.setHeaderText(null);
 	   a.setTitle("ERROR");
@@ -766,6 +899,7 @@ public class MenuController implements Initializable {
         String usu=Text14.getText();
 	String contra=Text15.getText();
         String orga=Text29.getText();
+        String nom=Text35.getText();
         int tel=Integer.parseInt(Text16.getText());
 	String corre=Text17.getText();
 	String direc=Text18.getText();
@@ -792,11 +926,12 @@ public class MenuController implements Initializable {
         if(Admin1){    
         System.out.println(Text14.getText());
 	System.out.println(Text15.getText());
+        System.out.println(Text35.getText());
+        System.out.println(Text17.getText());
         System.out.println(Integer.parseInt(Text16.getText()));
-	System.out.println(Text17.getText());
 	System.out.println(Text18.getText());
 	
-	Conexion.writeToUpdate1(Adm1, usu, contra, orga, corre, tel, direc);
+	Conexion.writeToUpdate1(Adm1, usu, contra, orga, nom, corre, tel, direc);
 	   Alert a=new Alert(Alert.AlertType.INFORMATION);
 	   a.setHeaderText(null);
 	   a.setTitle("CORRECTO");
@@ -808,6 +943,7 @@ public class MenuController implements Initializable {
            Text17.setText("");
            Text18.setText("");
            Text29.setText("");
+           Text35.setText("");
            adm1.setSelected(false);
         initcombo(); 
         Tablass Ta= new Tablass();
@@ -818,11 +954,12 @@ public class MenuController implements Initializable {
         if(Revi1){    
         System.out.println(Text14.getText());
 	System.out.println(Text15.getText());
+        System.out.println(Text35.getText());
+        System.out.println(Text17.getText());
         System.out.println(Integer.parseInt(Text16.getText()));
-	System.out.println(Text17.getText());
 	System.out.println(Text18.getText());
 	
-	Conexion.writeToUpdate1(Adm1, usu, contra, orga, corre, tel, direc);
+	Conexion.writeToUpdate1(Adm1, usu, contra, orga, nom, corre, tel, direc);
 	   Alert a=new Alert(Alert.AlertType.INFORMATION);
 	   a.setHeaderText(null);
 	   a.setTitle("CORRECTO");
@@ -834,6 +971,7 @@ public class MenuController implements Initializable {
            Text17.setText("");
            Text18.setText("");
            Text29.setText("");
+           Text35.setText("");
            rev1.setSelected(false);
         initcombo(); 
         Tablass Ta= new Tablass();
@@ -844,11 +982,12 @@ public class MenuController implements Initializable {
         if(Recer1){    
         System.out.println(Text14.getText());
 	System.out.println(Text15.getText());
+        System.out.println(Text35.getText());
+        System.out.println(Text17.getText());
         System.out.println(Integer.parseInt(Text16.getText()));
-	System.out.println(Text17.getText());
 	System.out.println(Text18.getText());
 	
-	Conexion.writeToUpdate1(Adm1, usu, contra, orga, corre, tel, direc);
+	Conexion.writeToUpdate1(Adm1, usu, contra, orga, nom, corre, tel, direc);
 	   Alert a=new Alert(Alert.AlertType.INFORMATION);
 	   a.setHeaderText(null);
 	   a.setTitle("CORRECTO");
@@ -860,6 +999,7 @@ public class MenuController implements Initializable {
            Text17.setText("");
            Text18.setText("");
            Text29.setText("");
+           Text35.setText("");
            rec1.setSelected(false);
         initcombo(); 
         Tablass Ta= new Tablass();
@@ -980,6 +1120,7 @@ public class MenuController implements Initializable {
                 Tablass T= Tabla2.getItems().get(Tabla2.getSelectionModel().getSelectedIndex());
                 Text14.setText(T.getUsuario());
                 Text15.setText(T.getContraseña());
+                Text35.setText(T.getNombre());
 		Text16.setText(T.getTelefono());
 		Text17.setText(T.getCorreo());
                 Text18.setText(T.getDireccion());
@@ -993,7 +1134,6 @@ public class MenuController implements Initializable {
                 Tablass T= Tabla3.getItems().get(Tabla3.getSelectionModel().getSelectedIndex());
                 Text19.setText(T.getUsuario());
                 Text30.setText(T.getEstado());
-                
             }
             });
     }
@@ -1005,10 +1145,10 @@ public class MenuController implements Initializable {
         Text12.setText("");
         Text13.setText("");
         Text28.setText("");
+        Text34.setText("");
         adm.setSelected(false);
         rev.setSelected(false);
         rec.setSelected(false);
-        
     }
     @FXML
     private void cambioo1(Event event) {
@@ -1018,6 +1158,7 @@ public class MenuController implements Initializable {
         Text17.setText("");
         Text18.setText("");
         Text29.setText("");
+        Text35.setText("");
         adm.setSelected(false);
         rev.setSelected(false);
         rec.setSelected(false);
@@ -1032,19 +1173,380 @@ public class MenuController implements Initializable {
         check3.setSelected(false);
         check4.setSelected(false);
     }
-
-    
+    @FXML
+    private void aprobar(ActionEvent event) {
+       recurso c = this.box.getValue();
+            if (c != null) {
+                this.Text32.setText(c.getUsuario());
+            } 
+    }
+    @FXML
+    private void entregar(ActionEvent event) {
+       recurso c = this.box1.getValue();
+            if (c != null) {
+                this.Text33.setText(c.getUsuario());
+            }  
+    }
+    @FXML
+    private void organi2(ActionEvent event) {
+        combos c = this.box6.getValue();
+            if (c != null) {
+                this.Text31.setText(c.getOrganizacion());
+            }
+    }
+    @FXML
+    private void Aprob(MouseEvent event) {
+         if(aprob.isSelected()){
+                box.setDisable(false);
+             }else{
+                box.setDisable(true);
+             }
+    }
+    @FXML
+    private void Entreg(MouseEvent event) {
+         if(entreg.isSelected()){
+                box1.setDisable(false);
+             }else{
+                box1.setDisable(true);
+             }
+    }
     @FXML
     private void agregar2(ActionEvent event) {
+        Conexion conect= new Conexion();
+    if(Text20.getText().equals("") || Text21.getText().equals("") || Text22.getText().equals("") || Text31.getText().equals("")){
+	   Alert a=new Alert(Alert.AlertType.ERROR);
+	   a.setHeaderText(null);
+	   a.setTitle("ERROR");
+	   a.setContentText("Debe Ingresar Todos los datos");
+	   a.showAndWait();
+    }else{
+      int Id=conect.id2();
+      String Si=null;
+      String Orga="";
+      String Recur="";
+      String Aprob="";
+      String UsuApro="";
+      String Entr="";
+      String UsuEntre="";
+      int Tiemp=0;
+      int Cost=0;
+      Orga=Text31.getText();
+      Recur=Text20.getText();
+      if(conect.existeRecur(Recur)==0){
+      if(aprob.isSelected()){
+          Aprob="Si Necesita";
+          UsuApro=Text32.getText();
+      }else{
+          Aprob="No Necesita";
+          UsuApro="------";
+      
+      if(entreg.isSelected()){
+          Aprob="Si Necesita";
+          UsuEntre=Text33.getText();
+      }else{
+          Entr="No Necesita";
+          UsuEntre="------";
+      }
+      }
+      Tiemp=Integer.parseInt(Text21.getText());
+      Cost=Integer.parseInt(Text22.getText());
+      Si="Activo";
+      
+         System.out.println(Text31.getText());
+	 System.out.println(Text20.getText());
+         System.out.println(Aprob);
+         System.out.println(UsuApro);
+         System.out.println(Text32.getText());
+         System.out.println(Entr);
+         System.out.println(UsuEntre);
+         System.out.println(Text33.getText());
+	 System.out.println(Text21.getText());
+	 System.out.println(Text22.getText());
+         Si="Activo";	
+         Conexion.writeToDatabase2(Id, Orga, Recur, Aprob, UsuApro, Entr, UsuEntre, Tiemp, Cost, Si);
+	   Alert a=new Alert(Alert.AlertType.INFORMATION);
+	   a.setHeaderText(null);
+	   a.setTitle("CORRECTO");
+	   a.setContentText("Agregado");
+	   a.showAndWait();
+        Text20.setText("");
+        Text21.setText("");
+        Text22.setText("");
+        Text31.setText("");
+        Text32.setText("");
+        Text33.setText("");
+        aprob.setSelected(false);
+	entreg.setSelected(false);
+	initcombo();
+	Tablasss Ta= new Tablasss();
+        ObservableList<Tablasss> itemss=Ta.getTablass();
+        this.Tabla4.setItems(itemss);
+        this.Tabla5.setItems(itemss);
+        }else{
+	   Alert a=new Alert(Alert.AlertType.ERROR);
+	   a.setHeaderText(null);
+	   a.setTitle("ERROR");
+	   a.setContentText("La Organizacion ya Existe");
+	   a.showAndWait();
+	   }
+	}
     }
+    @FXML
+    private void aprobar1(ActionEvent event) {
+        recurso c = this.box2.getValue();
+            if (c != null) {
+                this.Text37.setText(c.getUsuario());
+            }
+    }
+    @FXML
+    private void entregar1(ActionEvent event) {
+        recurso c = this.box3.getValue();
+            if (c != null) {
+                this.Text38.setText(c.getUsuario());
+            }  
 
+    }
+    @FXML
+    private void organi3(ActionEvent event) {
+        combos c = this.box7.getValue();
+            if (c != null) {
+                this.Text36.setText(c.getOrganizacion());
+            }
+    }
+    @FXML
+    private void Aprob1(MouseEvent event) {
+         if(aprob1.isSelected()){
+                box2.setDisable(false);
+             }else{
+                box2.setDisable(true);
+             }
+    }
+    @FXML
+    private void Entreg1(MouseEvent event) {
+         if(entreg1.isSelected()){
+                box3.setDisable(false);
+             }else{
+                box3.setDisable(true);
+             }
+    }
     @FXML
     private void modificar2(ActionEvent event) {
+        Conexion conect= new Conexion();
+    if(Text23.getText().equals("") || Text24.getText().equals("") || Text25.getText().equals("") || Text36.getText().equals("")){
+	   Alert a=new Alert(Alert.AlertType.ERROR);
+	   a.setHeaderText(null);
+	   a.setTitle("ERROR");
+	   a.setContentText("Debe Ingresar Todos los datos");
+	   a.showAndWait();
+    }else{
+      int Id=conect.id2();
+      String Si=null;
+      String Orga="";
+      String Recur="";
+      String Aprob="";
+      String UsuApro="";
+      String Entr="";
+      String UsuEntre="";
+      int Tiemp=0;
+      int Cost=0;
+      Orga=Text36.getText();
+      Recur=Text23.getText();
+      
+      if(aprob1.isSelected()){
+          Aprob="Si Necesita";
+          UsuApro=Text37.getText();
+      }else{
+          Aprob="No Necesita";
+          UsuApro="------";
+      
+      if(entreg1.isSelected()){
+          Aprob="Si Necesita";
+          UsuEntre=Text38.getText();
+      }else{
+          Entr="No Necesita";
+          UsuEntre="------";
+      }
+      }
+      Tiemp=Integer.parseInt(Text24.getText());
+      Cost=Integer.parseInt(Text25.getText());
+      
+         System.out.println(Text36.getText());
+	 System.out.println(Text23.getText());
+         System.out.println(Aprob);
+         System.out.println(UsuApro);
+         System.out.println(Text37.getText());
+         System.out.println(Entr);
+         System.out.println(UsuEntre);
+         System.out.println(Text38.getText());
+	 System.out.println(Text24.getText());
+	 System.out.println(Text25.getText());
+         Conexion.writeToUpdate2(Orga, Recur, Aprob, UsuApro, Entr, UsuEntre, Tiemp, Cost);
+	   Alert a=new Alert(Alert.AlertType.INFORMATION);
+	   a.setHeaderText(null);
+	   a.setTitle("CORRECTO");
+	   a.setContentText("Modificado");
+	   a.showAndWait();
+        Text23.setText("");
+        Text24.setText("");
+        Text25.setText("");
+        Text36.setText("");
+        Text37.setText("");
+        Text38.setText("");
+        aprob1.setSelected(false);
+	entreg1.setSelected(false);
+	initcombo();
+	Tablasss Ta= new Tablasss();
+        ObservableList<Tablasss> itemss=Ta.getTablass();
+        this.Tabla4.setItems(itemss);
+        this.Tabla5.setItems(itemss);;
+	}
     }
-
+    @FXML
+    private void activar4(ActionEvent event) {
+        if(check9.isSelected()){
+			activo4=true;
+                        activo5=false;
+            }
+    }
+    @FXML
+    private void activar5(ActionEvent event) {
+        if(check10.isSelected()){
+			activo5=true;
+                        activo4=false;
+            }
+    }
     @FXML
     private void cambiar2(ActionEvent event) {
+        Conexion conect=new Conexion();
+	if(Text26.getText().equals("") || Text39.getText().equals("")){
+	   Alert a=new Alert(Alert.AlertType.ERROR);
+	   a.setHeaderText(null);
+	   a.setTitle("ERROR");
+	   a.setContentText("Debe Ingresar Todos los datos");
+	   a.showAndWait();	
+	}else{	
+	String recu=Text26.getText();
+	String esta=Text39.getText();
+        
+	if(activo4){
+            activo5=false;
+	if(esta.equals("Activo")){
+                Alert a=new Alert(Alert.AlertType.INFORMATION);
+                a.setHeaderText(null);
+                a.setTitle("ERROR");
+                a.setContentText("Ya es Activo");
+                a.showAndWait();
+	}else{
+	  String Sis;
+	  if(check9.isSelected()){
+                Sis="Activo";
+           System.out.println(Text26.getText());
+           System.out.println(Sis);
+           Conexion.writeToActivo2(recu, Sis);
+	   Alert a=new Alert(Alert.AlertType.INFORMATION);
+	   a.setHeaderText(null);
+	   a.setTitle("CORRECTO");
+	   a.setContentText("Modificado");
+	   a.showAndWait();
+	Text26.setText("");
+        Text39.setText("");
+        check9.setSelected(false);
+        activo4=false;
+	initcombo(); 
+	Tablasss Ta= new Tablasss();
+        ObservableList<Tablasss> itemss=Ta.getTablass();
+        this.Tabla4.setItems(itemss);
+        this.Tabla5.setItems(itemss);
+                }
+            }
+        } 
+	
+	if(activo5){
+            activo4=false;
+	if(esta.equals("Inactivo")){
+		Alert a=new Alert(Alert.AlertType.INFORMATION);
+                a.setHeaderText(null);
+                a.setTitle("ERROR");
+                a.setContentText("Ya es Inactivo");
+                a.showAndWait();
+	}else{
+           String Si;
+           if(check10.isSelected()){
+                Si="Inactivo";
+           System.out.println(Text26.getText());
+           System.out.println(Si);
+	   Conexion.writeToActivo2(recu, Si);
+	   Alert a=new Alert(Alert.AlertType.INFORMATION);
+	   a.setHeaderText(null);
+	   a.setTitle("CORRECTO");
+	   a.setContentText("Modificado");
+	   a.showAndWait();
+	Text26.setText("");
+        Text39.setText("");
+        check10.setSelected(false);
+        activo5=false;
+	initcombo(); 
+	Tablasss Ta= new Tablasss();
+        ObservableList<Tablasss> itemss=Ta.getTablass();
+        this.Tabla4.setItems(itemss);
+        this.Tabla5.setItems(itemss);
+                    }
+                }
+            }
+        }
     }
-
-    
+    private void mouse4() {
+	 Tabla4.setOnMouseClicked(new EventHandler<MouseEvent>(){	 
+            @Override
+            public void handle(MouseEvent event) {
+                Tablasss T= Tabla4.getItems().get(Tabla4.getSelectionModel().getSelectedIndex());
+                Text23.setText(T.getRecurso());
+		Text24.setText(T.getTiempo());
+		Text25.setText(T.getCosto());
+            }
+            });
+    }
+    private void mouse5() {
+	 Tabla5.setOnMouseClicked(new EventHandler<MouseEvent>(){	 
+            @Override
+            public void handle(MouseEvent event) {
+                Tablasss T= Tabla5.getItems().get(Tabla5.getSelectionModel().getSelectedIndex());
+                Text26.setText(T.getRecurso());
+		Text39.setText(T.getEstado());
+            }
+            });
+    }
+    @FXML
+    private void cambiooo(Event event) {
+        Text20.setText("");
+        Text21.setText("");
+        Text22.setText("");
+        Text31.setText("");
+        Text32.setText("");
+        Text33.setText("");
+        aprob.setSelected(false);
+        entreg.setSelected(false);
+        box.setDisable(true);
+        box1.setDisable(true);
+    }
+   @FXML
+    private void cambiooo1(Event event) {
+        Text23.setText("");
+        Text24.setText("");
+        Text25.setText("");
+        Text36.setText("");
+        Text37.setText("");
+        Text38.setText("");
+        aprob1.setSelected(false);
+        entreg1.setSelected(false);
+        box2.setDisable(true);
+        box3.setDisable(true);
+    }
+    @FXML
+    private void cambiooo2(Event event) {
+        Text26.setText("");
+        Text39.setText("");
+        check9.setSelected(false);
+        check10.setSelected(false);
+    }
 }
