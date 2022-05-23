@@ -1,6 +1,10 @@
 package Acciones;
 
-
+import Tabla.Tablas;
+import Tabla.Tablass;
+import Tabla.Tablasss;
+import combo.combos;
+import combo.recurso;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -184,7 +188,6 @@ public class MenuController implements Initializable {
     private TextField Text21;
     @FXML
     private TextField Text22;
-    
     @FXML
     private Button ag2;
     @FXML
@@ -246,11 +249,7 @@ public class MenuController implements Initializable {
     @FXML
     private TextField Text39;
     @FXML
-    private CheckBox check9;
-    @FXML
     private Button camb2;
-    @FXML
-    private CheckBox check10;
     @FXML
     private TableView<Tablasss> Tabla5;
     @FXML
@@ -271,7 +270,10 @@ public class MenuController implements Initializable {
     private TableColumn<Tablasss, Integer> costo1;
     @FXML
     private TableColumn<Tablasss, String> estadoo;
-    
+    @FXML
+    private CheckBox check5;
+    @FXML
+    private CheckBox check6;
 	
             boolean activo=false;
 	    boolean activo1=false;
@@ -292,11 +294,6 @@ public class MenuController implements Initializable {
     @FXML
     private ToggleGroup tipoos;
     
-    private CheckBox check5;
-    private CheckBox check6;
-    private CheckBox check7;
-    private CheckBox check8;
-   
 @Override
     public void initialize(URL url, ResourceBundle rb) {
       box.setDisable(true);
@@ -305,7 +302,6 @@ public class MenuController implements Initializable {
       box3.setDisable(true);
       initcombo();
       initrecurso();
-      initrecursos();
       mouse();
       mouse1();
       mouse2();
@@ -379,27 +375,15 @@ public class MenuController implements Initializable {
 	 this.box5.setItems(items);
          this.box6.setItems(items);
          this.box7.setItems(items);
-         
-        
     }
     public void initrecurso(){
-         recurso E=new recurso();  
-	 ObservableList<recurso> itemss=E.getrecurso();
-         this.box1.setItems(itemss);
-         this.box2.setItems(itemss);
-    }
-    public void initrecursos(){
-         recurso E=new recurso();  
-	 ObservableList<recurso> itemss=E.getrecursos();
-         this.box.setItems(itemss);
-         this.box3.setItems(itemss);
+         
     }
     @FXML
     private void regresar(ActionEvent event) {
         Stage stage= (Stage) this.b.getScene().getWindow();
         stage.close();
     }
-    
     @FXML
     private void cancel(ActionEvent event) {
         Text.setText("");
@@ -433,12 +417,10 @@ public class MenuController implements Initializable {
         Text28.setText("");
         Text29.setText("");
         Text30.setText("");
-        Text31.setText("");
         Text32.setText("");
         Text33.setText("");
         Text34.setText("");
         Text35.setText("");
-        Text36.setText("");
         Text37.setText("");
         Text38.setText("");
         Text39.setText("");
@@ -454,10 +436,22 @@ public class MenuController implements Initializable {
         check4.setSelected(false);
         check5.setSelected(false);
         check6.setSelected(false);
-        check7.setSelected(false);
-        check8.setSelected(false);
-        
-        
+        aprob.setSelected(false);
+        aprob1.setSelected(false);
+        entreg.setSelected(false);
+        entreg1.setSelected(false);
+        box.setDisable(true);
+        box1.setDisable(true);
+        box2.setDisable(true);
+        box3.setDisable(true);
+        box.setValue(null);
+        box1.setValue(null);
+        box2.setValue(null);
+        box3.setValue(null);
+        box4.setValue(null);
+        box5.setValue(null);
+        box6.setValue(null);
+        box7.setValue(null);
     }
     @FXML
     private void agregar(ActionEvent event) {
@@ -780,7 +774,6 @@ public class MenuController implements Initializable {
                  System.out.println(Text11.getText());
 		 System.out.println(Text13.getText());
                  Conexion.writeToDatabase1(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
-                 Conexion.writeToDatabasee1(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
@@ -794,7 +787,9 @@ public class MenuController implements Initializable {
         Text13.setText("");
         Text34.setText("");
 	adm.setSelected(false);
-	initcombo(); 
+        box4.setValue(null);
+	initcombo();
+        initrecurso();
         Tablass Ta= new Tablass();
         ObservableList<Tablass> itemss=Ta.getTablas();
         this.Tabla2.setItems(itemss);
@@ -809,7 +804,6 @@ public class MenuController implements Initializable {
                  System.out.println(Text11.getText());
 		 System.out.println(Text13.getText());	
                  Conexion.writeToDatabase1(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
-                 Conexion.writeToDatabasee2(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
@@ -823,7 +817,9 @@ public class MenuController implements Initializable {
         Text13.setText("");
         Text34.setText("");
 	rev.setSelected(false);
-	initcombo(); 
+        box4.setValue(null);
+	initcombo();
+        initrecurso();
 	Tablass Ta= new Tablass();
         ObservableList<Tablass> itemss=Ta.getTablas();
         this.Tabla2.setItems(itemss);
@@ -838,7 +834,6 @@ public class MenuController implements Initializable {
                  System.out.println(Text11.getText());
 		 System.out.println(Text13.getText());	
                  Conexion.writeToDatabase1(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
-                 Conexion.writeToDatabasee3(Id, Adm, Usu, Contra, Orga, Nom, Corr, Tel, Direc, Estado);
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
@@ -852,7 +847,9 @@ public class MenuController implements Initializable {
         Text13.setText("");
         Text34.setText("");
 	rec.setSelected(false);
-	initcombo(); 
+        box4.setValue(null);
+	initcombo();
+        initrecurso();
 	Tablass Ta= new Tablass();
         ObservableList<Tablass> itemss=Ta.getTablas();
         this.Tabla2.setItems(itemss);
@@ -945,7 +942,9 @@ public class MenuController implements Initializable {
            Text29.setText("");
            Text35.setText("");
            adm1.setSelected(false);
-        initcombo(); 
+           box5.setValue(null);
+        initcombo();
+        initrecurso();
         Tablass Ta= new Tablass();
         ObservableList<Tablass> itemss=Ta.getTablas();
         this.Tabla2.setItems(itemss);
@@ -973,7 +972,9 @@ public class MenuController implements Initializable {
            Text29.setText("");
            Text35.setText("");
            rev1.setSelected(false);
-        initcombo(); 
+           box5.setValue(null);
+        initcombo();
+        initrecurso();
         Tablass Ta= new Tablass();
         ObservableList<Tablass> itemss=Ta.getTablas();
         this.Tabla2.setItems(itemss);
@@ -1001,7 +1002,9 @@ public class MenuController implements Initializable {
            Text29.setText("");
            Text35.setText("");
            rec1.setSelected(false);
-        initcombo(); 
+           box5.setValue(null);
+        initcombo();
+        initrecurso();
         Tablass Ta= new Tablass();
         ObservableList<Tablass> itemss=Ta.getTablas();
         this.Tabla2.setItems(itemss);
@@ -1069,7 +1072,8 @@ public class MenuController implements Initializable {
         Text30.setText("");
         check3.setSelected(false);
         activo2=false;
-	initcombo(); 
+	initcombo();
+        initrecurso();
 	Tablass Ta= new Tablass();
         ObservableList<Tablass> itemss=Ta.getTablas();
         this.Tabla2.setItems(itemss);
@@ -1102,7 +1106,8 @@ public class MenuController implements Initializable {
         Text30.setText("");
         check4.setSelected(false);
         activo3=false;
-	initcombo(); 
+	initcombo();
+        initrecurso();
 	Tablass Ta= new Tablass();
         ObservableList<Tablass> itemss=Ta.getTablas();
         this.Tabla2.setItems(itemss);
@@ -1193,6 +1198,12 @@ public class MenuController implements Initializable {
             if (c != null) {
                 this.Text31.setText(c.getOrganizacion());
             }
+         recurso E=new recurso();  
+	 ObservableList<recurso> itemss=E.getrecursos(Text31.getText());
+         this.box.setItems(itemss);
+         recurso R=new recurso();  
+	 ObservableList<recurso> itemsss=R.getrecurso(Text31.getText());
+         this.box1.setItems(itemsss);
     }
     @FXML
     private void Aprob(MouseEvent event) {
@@ -1226,44 +1237,52 @@ public class MenuController implements Initializable {
       String Recur="";
       String Aprob="";
       String UsuApro="";
+      String Estadoa="";
       String Entr="";
       String UsuEntre="";
+      String Estadoe="";
       int Tiemp=0;
-      int Cost=0;
+      String Cost="";
       Orga=Text31.getText();
       Recur=Text20.getText();
       if(conect.existeRecur(Recur)==0){
       if(aprob.isSelected()){
           Aprob="Si Necesita";
           UsuApro=Text32.getText();
+          Estadoa="Pendiente";
       }else{
           Aprob="No Necesita";
           UsuApro="------";
-      
+          Estadoa="------";
+      }
       if(entreg.isSelected()){
-          Aprob="Si Necesita";
+          Entr="Si Necesita";
           UsuEntre=Text33.getText();
+          Estadoe="Pendiente";
       }else{
           Entr="No Necesita";
           UsuEntre="------";
+          Estadoe="------";
       }
-      }
+      
       Tiemp=Integer.parseInt(Text21.getText());
-      Cost=Integer.parseInt(Text22.getText());
+      Cost="Q. "+Text22.getText();
       Si="Activo";
       
          System.out.println(Text31.getText());
 	 System.out.println(Text20.getText());
          System.out.println(Aprob);
          System.out.println(UsuApro);
+         System.out.println(Estadoa);
          System.out.println(Text32.getText());
          System.out.println(Entr);
          System.out.println(UsuEntre);
+         System.out.println(Estadoe);
          System.out.println(Text33.getText());
 	 System.out.println(Text21.getText());
 	 System.out.println(Text22.getText());
          Si="Activo";	
-         Conexion.writeToDatabase2(Id, Orga, Recur, Aprob, UsuApro, Entr, UsuEntre, Tiemp, Cost, Si);
+         Conexion.writeToDatabase2(Id, Orga, Recur, Aprob, UsuApro, Estadoa, Entr, UsuEntre, Estadoe, Tiemp, Cost, Si);
 	   Alert a=new Alert(Alert.AlertType.INFORMATION);
 	   a.setHeaderText(null);
 	   a.setTitle("CORRECTO");
@@ -1277,7 +1296,13 @@ public class MenuController implements Initializable {
         Text33.setText("");
         aprob.setSelected(false);
 	entreg.setSelected(false);
+        box.setValue(null);
+        box.setDisable(true);
+        box1.setValue(null);
+        box1.setDisable(true);
+        box6.setValue(null);
 	initcombo();
+        initrecurso();
 	Tablasss Ta= new Tablasss();
         ObservableList<Tablasss> itemss=Ta.getTablass();
         this.Tabla4.setItems(itemss);
@@ -1312,6 +1337,12 @@ public class MenuController implements Initializable {
             if (c != null) {
                 this.Text36.setText(c.getOrganizacion());
             }
+             recurso E=new recurso();  
+             ObservableList<recurso> itemss=E.getrecursos(Text36.getText());
+             this.box2.setItems(itemss);
+             recurso R=new recurso();  
+             ObservableList<recurso> itemsss=R.getrecurso(Text36.getText());
+             this.box3.setItems(itemsss);
     }
     @FXML
     private void Aprob1(MouseEvent event) {
@@ -1345,42 +1376,46 @@ public class MenuController implements Initializable {
       String Recur="";
       String Aprob="";
       String UsuApro="";
+      String Estadoa="";
       String Entr="";
       String UsuEntre="";
+      String Estadoe="";
       int Tiemp=0;
-      int Cost=0;
+      String Cost="";
       Orga=Text36.getText();
       Recur=Text23.getText();
       
       if(aprob1.isSelected()){
           Aprob="Si Necesita";
           UsuApro=Text37.getText();
+          Estadoa="Pendiente";
       }else{
           Aprob="No Necesita";
           UsuApro="------";
-      
+          Estadoa="------";
+      }
       if(entreg1.isSelected()){
-          Aprob="Si Necesita";
+          Entr="Si Necesita";
           UsuEntre=Text38.getText();
+          Estadoe="Pendiente";
       }else{
           Entr="No Necesita";
           UsuEntre="------";
+          Estadoe="------";
       }
-      }
+      
       Tiemp=Integer.parseInt(Text24.getText());
-      Cost=Integer.parseInt(Text25.getText());
+      Cost="Q. "+Text25.getText();
       
          System.out.println(Text36.getText());
 	 System.out.println(Text23.getText());
          System.out.println(Aprob);
          System.out.println(UsuApro);
-         System.out.println(Text37.getText());
          System.out.println(Entr);
          System.out.println(UsuEntre);
-         System.out.println(Text38.getText());
 	 System.out.println(Text24.getText());
 	 System.out.println(Text25.getText());
-         Conexion.writeToUpdate2(Orga, Recur, Aprob, UsuApro, Entr, UsuEntre, Tiemp, Cost);
+         Conexion.writeToUpdate2(Orga, Recur, Aprob, UsuApro, Estadoa, Entr, UsuEntre, Estadoe, Tiemp, Cost);
 	   Alert a=new Alert(Alert.AlertType.INFORMATION);
 	   a.setHeaderText(null);
 	   a.setTitle("CORRECTO");
@@ -1394,7 +1429,13 @@ public class MenuController implements Initializable {
         Text38.setText("");
         aprob1.setSelected(false);
 	entreg1.setSelected(false);
+        box2.setValue(null);
+        box2.setDisable(true);
+        box3.setValue(null);
+        box3.setDisable(true);
+        box7.setValue(null);
 	initcombo();
+        initrecurso();
 	Tablasss Ta= new Tablasss();
         ObservableList<Tablasss> itemss=Ta.getTablass();
         this.Tabla4.setItems(itemss);
@@ -1403,14 +1444,14 @@ public class MenuController implements Initializable {
     }
     @FXML
     private void activar4(ActionEvent event) {
-        if(check9.isSelected()){
+        if(check5.isSelected()){
 			activo4=true;
                         activo5=false;
             }
     }
     @FXML
     private void activar5(ActionEvent event) {
-        if(check10.isSelected()){
+        if(check6.isSelected()){
 			activo5=true;
                         activo4=false;
             }
@@ -1438,7 +1479,7 @@ public class MenuController implements Initializable {
                 a.showAndWait();
 	}else{
 	  String Sis;
-	  if(check9.isSelected()){
+	  if(check5.isSelected()){
                 Sis="Activo";
            System.out.println(Text26.getText());
            System.out.println(Sis);
@@ -1450,9 +1491,10 @@ public class MenuController implements Initializable {
 	   a.showAndWait();
 	Text26.setText("");
         Text39.setText("");
-        check9.setSelected(false);
+        check5.setSelected(false);
         activo4=false;
-	initcombo(); 
+	initcombo();
+        initrecurso();
 	Tablasss Ta= new Tablasss();
         ObservableList<Tablasss> itemss=Ta.getTablass();
         this.Tabla4.setItems(itemss);
@@ -1471,7 +1513,7 @@ public class MenuController implements Initializable {
                 a.showAndWait();
 	}else{
            String Si;
-           if(check10.isSelected()){
+           if(check6.isSelected()){
                 Si="Inactivo";
            System.out.println(Text26.getText());
            System.out.println(Si);
@@ -1483,9 +1525,10 @@ public class MenuController implements Initializable {
 	   a.showAndWait();
 	Text26.setText("");
         Text39.setText("");
-        check10.setSelected(false);
+        check6.setSelected(false);
         activo5=false;
-	initcombo(); 
+	initcombo();
+        initrecurso();
 	Tablasss Ta= new Tablasss();
         ObservableList<Tablasss> itemss=Ta.getTablass();
         this.Tabla4.setItems(itemss);
@@ -1528,6 +1571,9 @@ public class MenuController implements Initializable {
         entreg.setSelected(false);
         box.setDisable(true);
         box1.setDisable(true);
+        box6.setValue(null);
+        box.setValue(null);
+        box1.setValue(null);
     }
    @FXML
     private void cambiooo1(Event event) {
@@ -1541,12 +1587,15 @@ public class MenuController implements Initializable {
         entreg1.setSelected(false);
         box2.setDisable(true);
         box3.setDisable(true);
+        box7.setValue(null);
+        box2.setValue(null);
+        box3.setValue(null);
     }
     @FXML
     private void cambiooo2(Event event) {
         Text26.setText("");
         Text39.setText("");
-        check9.setSelected(false);
-        check10.setSelected(false);
+        check5.setSelected(false);
+        check6.setSelected(false);
     }
 }

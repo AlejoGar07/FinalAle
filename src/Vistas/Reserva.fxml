@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acciones.ReservaController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="485.0" prefWidth="989.0">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="989.0">
+               <children>
+                  <AnchorPane id="AnchorPane" prefHeight="491.0" prefWidth="1096.0">
+                     <children>
+                        <TabPane prefHeight="477.0" prefWidth="1096.0" tabClosingPolicy="UNAVAILABLE">
+                           <tabs>
+                              <Tab text="Solicitudes de Préstamo">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="1072.0">
+                                       <children>
+                                          <Label layoutX="54.0" layoutY="14.0" text="SOLICITUDES DE PRESTAMO">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator layoutX="54.0" layoutY="52.0" prefHeight="1.0" prefWidth="1000.0" />
+                                          <Separator layoutX="54.0" layoutY="416.0" prefHeight="12.0" prefWidth="1000.0" />
+                                          <TableView fx:id="Tabla" layoutX="14.0" layoutY="80.0" prefHeight="316.0" prefWidth="1061.0">
+                                             <columns>
+                                                <TableColumn fx:id="organi" editable="false" prefWidth="120.0" resizable="false" text="Organizacion" />
+                                                <TableColumn fx:id="recu" editable="false" prefWidth="120.0" resizable="false" text="Recurso" />
+                                                <TableColumn fx:id="activ" editable="false" prefWidth="130.0" resizable="false" text="Actividad" />
+                                                <TableColumn fx:id="descri" editable="false" prefWidth="250.0" resizable="false" text="Descripcion" />
+                                                <TableColumn fx:id="aprob" editable="false" prefWidth="75.0" resizable="false" text="Aprobacion" />
+                                                <TableColumn fx:id="confir" editable="false" prefWidth="90.0" resizable="false" text="Confirmacion" />
+                                                <TableColumn fx:id="fecha" editable="false" prefWidth="70.0" resizable="false" text="Fecha/Con" />
+                                                <TableColumn fx:id="fecha1" prefWidth="70.0" resizable="false" text="Fecha" />
+                                                <TableColumn fx:id="horai" editable="false" prefWidth="60.0" resizable="false" text="Hora/I" />
+                                                <TableColumn fx:id="horaf" editable="false" prefWidth="60.0" resizable="false" text="Hora/F" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                        <Button fx:id="regresar" layoutX="-3.0" layoutY="468.0" mnemonicParsing="false" onAction="#regresar" text="Regresar">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

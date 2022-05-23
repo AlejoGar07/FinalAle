@@ -19,40 +19,92 @@ public class VistaController implements Initializable {
 	@FXML
 	private Pane container;
 
-	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
 	}	
-
-	@FXML
+        @FXML
 	private void admin(ActionEvent event) {
 		try{
 			FXMLLoader cargar= new FXMLLoader();
-			 cargar.setLocation(ProyectoFinal.class.getResource("/Acciones/Menu.fxml"));
+			cargar.setLocation(ProyectoFinal.class.getResource("/Vistas/Admin.fxml"));
 			Parent root = cargar.load();
-			 Scene scene = new Scene (root);
-			 Stage stage= new Stage();
-			 stage.setScene(scene);
-			 stage.showAndWait();
+			Scene scene = new Scene (root);
+			Stage stage= new Stage();
+			stage.setScene(scene);
+			stage.showAndWait();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
-
-	@FXML
+        @FXML
+        private void gestion(ActionEvent event) {
+                try{
+			FXMLLoader cargar= new FXMLLoader();
+			cargar.setLocation(ProyectoFinal.class.getResource("/Vistas/Revicion.fxml"));
+			Parent root = cargar.load();
+			Scene scene = new Scene (root);
+			Stage stage= new Stage();
+			stage.setScene(scene);
+			stage.showAndWait();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+        }
+        @FXML
 	private void revicion(ActionEvent event) {
 		try{
 			FXMLLoader cargar= new FXMLLoader();
-			 cargar.setLocation(ProyectoFinal.class.getResource("/Acciones/Revicion.fxml"));
+			cargar.setLocation(ProyectoFinal.class.getResource("/Vistas/Revicioon.fxml"));
 			Parent root = cargar.load();
-			 Scene scene = new Scene (root);
-			 Stage stage= new Stage();
-			 stage.setScene(scene);
-			 stage.showAndWait();
+			Scene scene = new Scene (root);
+			Stage stage= new Stage();
+			stage.setScene(scene);
+			stage.showAndWait();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
-	
+        @FXML
+        private void recepcion(ActionEvent event) {
+                try{
+			FXMLLoader cargar= new FXMLLoader();
+			cargar.setLocation(ProyectoFinal.class.getResource("/Vistas/Recepcioon.fxml"));
+			Parent root = cargar.load();
+			Scene scene = new Scene (root);
+			Stage stage= new Stage();
+			stage.setScene(scene);
+			stage.showAndWait();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+        }
+        @FXML
+        private void reserva(ActionEvent event) {
+                try{
+			FXMLLoader cargar= new FXMLLoader();
+			cargar.setLocation(ProyectoFinal.class.getResource("/Vistas/Reserva.fxml"));
+			Parent root = cargar.load();
+			Scene scene = new Scene (root);
+			Stage stage= new Stage();
+			stage.setScene(scene);
+			stage.showAndWait();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+        }   	
+        @FXML
+        private void pendiente(ActionEvent event) {
+                try{
+			FXMLLoader cargar= new FXMLLoader();
+			cargar.setLocation(ProyectoFinal.class.getResource("/Vistas/Reviciones.fxml"));
+			Parent root = cargar.load();
+			Scene scene = new Scene (root);
+			Stage stage= new Stage();
+			stage.setScene(scene);
+			stage.showAndWait();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+        }
 }

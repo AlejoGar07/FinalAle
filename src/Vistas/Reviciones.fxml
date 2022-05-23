@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acciones.RevicionesController">
+   <children>
+      <TabPane layoutX="-1.0" prefHeight="477.0" prefWidth="950.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Aprobar/Rechazar Solicitud de préstamo">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="425.0" prefWidth="736.0">
+                     <children>
+                        <TableView fx:id="Tabla" layoutX="28.0" layoutY="167.0" prefHeight="225.0" prefWidth="894.0">
+                          <columns>
+                            <TableColumn fx:id="organi" editable="false" prefWidth="120.0" resizable="false" text="Organizacion" />
+                            <TableColumn fx:id="recu" editable="false" prefWidth="120.0" resizable="false" text="Recurso" />
+                              <TableColumn fx:id="activ" editable="false" prefWidth="130.0" resizable="false" text="Actividad" />
+                              <TableColumn fx:id="descri" editable="false" prefWidth="250.0" resizable="false" text="Descripcion" />
+                              <TableColumn fx:id="aprob" editable="false" prefWidth="75.0" resizable="false" text="Aprobacion" />
+                              <TableColumn fx:id="fecha" editable="false" prefWidth="70.0" resizable="false" text="Fecha" />
+                              <TableColumn fx:id="horai" editable="false" prefWidth="60.0" resizable="false" text="Hora/I" />
+                              <TableColumn fx:id="horaf" prefWidth="60.0" resizable="false" text="Hora/F" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="54.0" layoutY="14.0" text="APROBAR/ RECHAZAR PRESTAMOS">
+                           <font>
+                              <Font name="Arial Italic" size="22.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="54.0" layoutY="52.0" prefHeight="6.0" prefWidth="855.0" />
+                        <Separator layoutX="54.0" layoutY="402.0" prefHeight="12.0" prefWidth="855.0" />
+                        <Label layoutX="225.0" layoutY="66.0" prefHeight="23.0" prefWidth="186.0" text="Nombre de Actividad:">
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="225.0" layoutY="104.0" prefHeight="23.0" prefWidth="186.0" text="Aprobar/Rechazar:">
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="Text" layoutX="469.0" layoutY="65.0" prefHeight="25.0" prefWidth="270.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </TextField>
+                        <RadioButton fx:id="aprobar" layoutX="469.0" layoutY="107.0" mnemonicParsing="false" onAction="#aprobar" text="Aprobar Solicitud">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="seleccionar" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rechazar" layoutX="469.0" layoutY="138.0" mnemonicParsing="false" onAction="#rechazar" text="Rechazar Solicitud" toggleGroup="$seleccionar" />
+                        <Button fx:id="aceptar" layoutX="351.0" layoutY="419.0" mnemonicParsing="false" onAction="#aceptar" text="Aceptar">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="cancel" layoutX="544.0" layoutY="419.0" mnemonicParsing="false" onAction="#cancel" text="Cancelar">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="regresar" layoutX="-1.0" layoutY="478.0" mnemonicParsing="false" onAction="#regresar" text="Regresar">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

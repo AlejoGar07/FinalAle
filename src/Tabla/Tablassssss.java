@@ -1,35 +1,43 @@
-package Acciones;
+package Tabla;
 
+import Tabla.Tablas;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Tablasss {
+public class Tablassssss {
         private String Organizacion;
         private String Recurso;
         private String Aprobacion;
         private String Usuarioa;
+        private String Estadoa;
         private String Entrega;
 	private String Usuarioe;
+        private String Estadoe;
 	private String Tiempo;
 	private String Costo;
         private String Estado;
         
-        public Tablasss() {
+        public Tablassssss() {
         }
-        public Tablasss(String organizacion, String recurso, String aprobacion, String usuarioa, String entrega, String usuarioe, String tiempo, String costo, String estado){
+        public Tablassssss(String organizacion, String recurso, String aprobacion, String usuarioa, String estadoa, String entrega, String usuarioe, String estadoe, String tiempo, String costo, String estado){
                 this.Organizacion=organizacion;
                 this.Recurso=recurso;
                 this.Aprobacion=aprobacion;
                 this.Usuarioa=usuarioa;
+                this.Estadoa=estadoa;
                 this.Entrega=entrega;
                 this.Usuarioe=usuarioe;
+                this.Estadoe=estadoe;
                 this.Tiempo=tiempo;
                 this.Costo=costo;
                 this.Estado=estado;
@@ -67,6 +75,14 @@ public class Tablasss {
         this.Usuarioa = Usuarioa;
     }
 
+    public String getEstadoa() {
+        return Estadoa;
+    }
+
+    public void setEstadoa(String Estadoa) {
+        this.Estadoa = Estadoa;
+    }
+
     public String getEntrega() {
         return Entrega;
     }
@@ -82,6 +98,15 @@ public class Tablasss {
     public void setUsuarioe(String Usuarioe) {
         this.Usuarioe = Usuarioe;
     }
+
+    public String getEstadoe() {
+        return Estadoe;
+    }
+
+    public void setEstadoe(String Estadoe) {
+        this.Estadoe = Estadoe;
+    }
+
     public String getTiempo() {
         return Tiempo;
     }
@@ -97,6 +122,7 @@ public class Tablasss {
     public void setCosto(String Costo) {
         this.Costo = Costo;
     }
+
     public String getEstado() {
         return Estado;
     }
@@ -104,11 +130,11 @@ public class Tablasss {
     public void setEstado(String Estado) {
         this.Estado = Estado;
     }
-    public ObservableList<Tablasss> getTablass(){
-	       ObservableList<Tablasss> O = FXCollections.observableArrayList();
+        
+    public ObservableList<Tablassssss> getTablassssss(){
+	       ObservableList<Tablassssss> O = FXCollections.observableArrayList();
 	       try{
-	       String s = ("select Organizacion, Recurso, Aprobacion, Usuarioa, Entrega, Usuarioe, Tiempo, Costo, Estado"
-		       + " from recursos order by Codigo");
+	       String s = ("select Organizacion, Recurso, Aprobacion, Usuarioa, Estadoa, Entrega, Usuarioe, Estadoe, Tiempo, Costo, Estado from recursos where Aprobacion= '"+"Si Necesita"+"' and Estadoa= '"+"Pendiente"+"' and Estado= '"+"Activo"+"' order by Codigo");
 	       Connection con=null;
 	       PreparedStatement  P=null;
 	       ResultSet rs=null;
@@ -125,14 +151,16 @@ public class Tablasss {
                       String recur=rs.getString("Recurso");
 		      String apro=rs.getString("Aprobacion");
                       String usua=rs.getString("Usuarioa");
+                      String estaa=rs.getString("Estadoa");
                       String entre=rs.getString("Entrega");
                       String usue=rs.getString("Usuarioe");
+                      String estae=rs.getString("Estadoe");
 		      String tiem=rs.getString("Tiempo");
 		      String cost=rs.getString("Costo");
                       String esta=rs.getString("Estado");
 		      
 		      
-		      Tablasss t = new Tablasss(orga, recur, apro, usua, entre, usue, tiem, cost, esta);
+		      Tablassssss t = new Tablassssss(orga, recur, apro, usua, estaa, entre, usue, estae, tiem, cost, esta);
 		      O.add(t);
 	       }
 	       
@@ -142,5 +170,4 @@ public class Tablasss {
 		}
 	       return O;
 }    
-       
 }

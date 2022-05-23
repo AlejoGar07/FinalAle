@@ -19,7 +19,7 @@
    <children>
       <TabPane layoutY="-1.0" prefHeight="537.0" prefWidth="988.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Gestionar Organizaciones">
+          <Tab onSelectionChanged="#cambi" text="Gestionar Organizaciones">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="861.0">
                      <children>
@@ -226,7 +226,7 @@
                      <children>
                         <TabPane layoutY="5.0" prefHeight="504.0" prefWidth="988.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
                           <tabs>
-                            <Tab text="Crear Usuario">
+                            <Tab onSelectionChanged="#cambioo" text="Crear Usuario">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="610.0">
                                        <children>
@@ -517,7 +517,7 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab text="Gestionar Recursos">
+            <Tab onSelectionChanged="#cambiooo" text="Gestionar Recursos">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -560,7 +560,7 @@
                                              <font>
                                                 <Font name="Arial" size="12.0" />
                                              </font></TextField>
-                                          <TextField fx:id="Text22" layoutX="455.0" layoutY="384.0" prefHeight="25.0" prefWidth="125.0">
+                                          <TextField fx:id="Text22" layoutX="455.0" layoutY="384.0" prefHeight="25.0" prefWidth="125.0" text="Q. ">
                                              <font>
                                                 <Font name="Arial" size="12.0" />
                                              </font></TextField>
@@ -646,7 +646,7 @@
                                              <font>
                                                 <Font name="Arial" size="12.0" />
                                              </font></TextField>
-                                          <TextField fx:id="Text25" layoutX="458.0" layoutY="288.0" prefHeight="25.0" prefWidth="123.0">
+                                          <TextField fx:id="Text25" layoutX="458.0" layoutY="288.0" prefHeight="25.0" prefWidth="123.0" text="Q. ">
                                              <font>
                                                 <Font name="Arial" size="12.0" />
                                              </font></TextField>
@@ -724,7 +724,7 @@
                                                 <Font name="Arial" size="12.0" />
                                              </font></TextField>
                                           <Separator layoutX="59.0" layoutY="66.0" prefHeight="2.0" prefWidth="860.0" />
-                                          <CheckBox fx:id="check9" layoutX="456.0" layoutY="156.0" mnemonicParsing="false" onAction="#activar4" />
+                                          <CheckBox fx:id="check5" layoutX="456.0" layoutY="156.0" mnemonicParsing="false" onAction="#activar4" />
                                           <Separator layoutX="58.0" layoutY="452.0" prefHeight="6.0" prefWidth="860.0" />
                                           <Button fx:id="camb2" layoutX="327.0" layoutY="473.0" mnemonicParsing="false" onAction="#cambiar2" text="Cambiar">
                                              <font>
@@ -736,7 +736,7 @@
                                                 <Font name="Arial" size="13.0" />
                                              </font>
                                           </Button>
-                                          <CheckBox fx:id="check10" layoutX="456.0" layoutY="201.0" mnemonicParsing="false" onAction="#activar5" />
+                                          <CheckBox fx:id="check6" layoutX="456.0" layoutY="201.0" mnemonicParsing="false" onAction="#activar5" />
                                           <TableView fx:id="Tabla5" layoutX="22.0" layoutY="240.0" prefHeight="198.0" prefWidth="916.0">
                                              <columns>
                                                 <TableColumn fx:id="organn1" editable="false" prefWidth="120.0" resizable="false" text="Organizacion" />

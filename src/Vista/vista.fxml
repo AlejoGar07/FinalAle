@@ -15,20 +15,21 @@
               <MenuItem mnemonicParsing="false" onAction="#admin" text="Administrador" />
                   <Menu mnemonicParsing="false" text="Sistema">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#revicion" text="Revicion" />
-                        <MenuItem mnemonicParsing="false" text="Recepcion" />
+                      <MenuItem mnemonicParsing="false" onAction="#gestion" text="Gestión" />
+                        <MenuItem mnemonicParsing="false" onAction="#revicion" text="Revición" />
+                        <MenuItem mnemonicParsing="false" onAction="#recepcion" text="Recepción" />
                     </items>
                   </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Solicitudes de Reserva">
             <items>
-              <MenuItem mnemonicParsing="false" text="Solicitudes de Reserva" />
+              <MenuItem mnemonicParsing="false" onAction="#reserva" text="Solicitudes de Reserva" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Solicitudes de Reserva Pendientes">
             <items>
-              <MenuItem mnemonicParsing="false" text="Solicitudes de Reserva Pendientes" />
+              <MenuItem mnemonicParsing="false" onAction="#pendiente" text="Solicitudes de Reserva Pendientes" />
             </items>
           </Menu>
         </menus>
