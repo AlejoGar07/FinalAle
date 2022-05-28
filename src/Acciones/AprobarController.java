@@ -33,9 +33,7 @@ public class AprobarController implements Initializable {
     @FXML
     private TableColumn<Tablassssss, String> usua;
     @FXML
-    private TableColumn<Tablassssss, String> entregaa;
-    @FXML
-    private TableColumn<Tablassssss, String> usuae;
+    private TableColumn<Tablassssss, String> esta;
     @FXML
     private TableColumn<Tablassssss, Integer> tiemp;
     @FXML
@@ -69,8 +67,7 @@ public class AprobarController implements Initializable {
         this.recur.setCellValueFactory(new PropertyValueFactory("Recurso"));
         this.aprobaci.setCellValueFactory(new PropertyValueFactory("Aprobacion"));
         this.usua.setCellValueFactory(new PropertyValueFactory("Usuarioa"));
-        this.entregaa.setCellValueFactory(new PropertyValueFactory("Entrega"));
-        this.usuae.setCellValueFactory(new PropertyValueFactory("Usuarioe"));
+        this.esta.setCellValueFactory(new PropertyValueFactory("Estadoa"));
         this.tiemp.setCellValueFactory(new PropertyValueFactory("Tiempo"));
         this.costo.setCellValueFactory(new PropertyValueFactory("Costo"));
         this.Tabla.setItems(itemsss);
@@ -136,7 +133,7 @@ public class AprobarController implements Initializable {
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
-	a.setContentText("Modificar");
+	a.setContentText("Aprobado");
 	a.showAndWait();
         Text.setText("");
         aprobar.setSelected(false);
@@ -152,7 +149,7 @@ public class AprobarController implements Initializable {
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
-	a.setContentText("Agregado");
+	a.setContentText("Rechazado");
 	a.showAndWait();
         Text.setText("");
         aprobar.setSelected(false);

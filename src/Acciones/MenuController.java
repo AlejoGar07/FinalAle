@@ -943,6 +943,7 @@ public class MenuController implements Initializable {
            Text35.setText("");
            adm1.setSelected(false);
            box5.setValue(null);
+           box5.setPromptText(null);
         initcombo();
         initrecurso();
         Tablass Ta= new Tablass();
@@ -973,6 +974,7 @@ public class MenuController implements Initializable {
            Text35.setText("");
            rev1.setSelected(false);
            box5.setValue(null);
+           box5.setPromptText(null);
         initcombo();
         initrecurso();
         Tablass Ta= new Tablass();
@@ -1003,6 +1005,7 @@ public class MenuController implements Initializable {
            Text35.setText("");
            rec1.setSelected(false);
            box5.setValue(null);
+           box5.setPromptText(null);
         initcombo();
         initrecurso();
         Tablass Ta= new Tablass();
@@ -1123,6 +1126,8 @@ public class MenuController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 Tablass T= Tabla2.getItems().get(Tabla2.getSelectionModel().getSelectedIndex());
+                Text29.setText(T.getOrganizacion());
+                box5.setPromptText(T.getOrganizacion());
                 Text14.setText(T.getUsuario());
                 Text15.setText(T.getContraseña());
                 Text35.setText(T.getNombre());
@@ -1311,7 +1316,7 @@ public class MenuController implements Initializable {
 	   Alert a=new Alert(Alert.AlertType.ERROR);
 	   a.setHeaderText(null);
 	   a.setTitle("ERROR");
-	   a.setContentText("La Organizacion ya Existe");
+	   a.setContentText("El Recurso ya Existe");
 	   a.showAndWait();
 	   }
 	}
@@ -1405,7 +1410,7 @@ public class MenuController implements Initializable {
       }
       
       Tiemp=Integer.parseInt(Text24.getText());
-      Cost="Q. "+Text25.getText();
+      Cost=Text25.getText();
       
          System.out.println(Text36.getText());
 	 System.out.println(Text23.getText());
@@ -1434,6 +1439,7 @@ public class MenuController implements Initializable {
         box3.setValue(null);
         box3.setDisable(true);
         box7.setValue(null);
+        box7.setPromptText(null);
 	initcombo();
         initrecurso();
 	Tablasss Ta= new Tablasss();
@@ -1543,6 +1549,8 @@ public class MenuController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 Tablasss T= Tabla4.getItems().get(Tabla4.getSelectionModel().getSelectedIndex());
+                box7.setPromptText(T.getOrganizacion());
+                Text36.setText(T.getOrganizacion());
                 Text23.setText(T.getRecurso());
 		Text24.setText(T.getTiempo());
 		Text25.setText(T.getCosto());

@@ -143,7 +143,7 @@
                                                 <Font name="Arial" size="13.0" />
                                              </font>
                                           </Button>
-                                          <TableView fx:id="Tabla" layoutX="132.0" layoutY="292.0" prefHeight="153.0" prefWidth="695.0">
+                                          <TableView fx:id="Tabla" layoutX="141.0" layoutY="292.0" prefHeight="153.0" prefWidth="695.0">
                                             <columns>
                                               <TableColumn fx:id="orga" editable="false" prefWidth="135.0" resizable="false" sortable="false" text="Organización" />
                                                 <TableColumn fx:id="direc" editable="false" prefWidth="160.0" resizable="false" sortable="false" text="Dirección" />

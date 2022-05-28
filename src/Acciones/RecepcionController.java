@@ -3,7 +3,13 @@ package Acciones;
 import Tabla.Tablassssss;
 import Tabla.Tablasssssss;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -29,13 +35,11 @@ public class RecepcionController implements Initializable {
     @FXML
     private TableColumn<Tablasssssss, String> recur;
     @FXML
-    private TableColumn<Tablasssssss, String> aprobaci;
-    @FXML
-    private TableColumn<Tablasssssss, String> usua;
-    @FXML
     private TableColumn<Tablasssssss, String> entregaa;
     @FXML
     private TableColumn<Tablasssssss, String> usuae;
+    @FXML
+    private TableColumn<Tablasssssss, String> esta;
     @FXML
     private TableColumn<Tablasssssss, Integer> tiemp;
     @FXML
@@ -59,6 +63,9 @@ public class RecepcionController implements Initializable {
     boolean NOO=false;
     boolean check=false;
     boolean check1=false;
+    @FXML
+    private TextField Text1;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         mouse();
@@ -66,10 +73,9 @@ public class RecepcionController implements Initializable {
         ObservableList<Tablasssssss> itemsss=Taa.getTablasssssss();
         this.organn.setCellValueFactory(new PropertyValueFactory("Organizacion"));
         this.recur.setCellValueFactory(new PropertyValueFactory("Recurso"));
-        this.aprobaci.setCellValueFactory(new PropertyValueFactory("Aprobacion"));
-        this.usua.setCellValueFactory(new PropertyValueFactory("Usuarioa"));
         this.entregaa.setCellValueFactory(new PropertyValueFactory("Entrega"));
         this.usuae.setCellValueFactory(new PropertyValueFactory("Usuarioe"));
+        this.esta.setCellValueFactory(new PropertyValueFactory("Estadoe"));
         this.tiemp.setCellValueFactory(new PropertyValueFactory("Tiempo"));
         this.costo.setCellValueFactory(new PropertyValueFactory("Costo"));
         this.Tabla.setItems(itemsss);
@@ -114,7 +120,6 @@ public class RecepcionController implements Initializable {
       String NO=null;
       String Activi="";
       Activi=Text.getText();
-      
             if(aprobar.isSelected()){
 		 SI="Aprobado";
                  SII=true;
@@ -131,27 +136,52 @@ public class RecepcionController implements Initializable {
         if(SII){
 		 System.out.println(Text.getText());
 		 
-                 Conexion.writeToUpdate6(Activi, SI);
+		String url = "jdbc:postgresql://localhost:5432/administrador";
+		String user = "postgres";
+		String password = "Ale0107";
+		String query="UPDATE recursos SET Recurso='"+Activi+"', Estadoe='"+SI+"' WHERE Codigo='"+Text1.getText()+"';";
+		try{
+                Connection c = DriverManager.getConnection(url,user,password);
+		PreparedStatement p = c.prepareStatement(query);
+		int n=p.executeUpdate();
+                if(n>0){
+		System.out.println("Modificado");
+                }
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
-	a.setContentText("Modificar");
+	a.setContentText("Aprobado");
 	a.showAndWait();
         Text.setText("");
+        Text1.setText("");
         aprobar.setSelected(false);
         rechazar.setSelected(false);
         Tablasssssss Taa= new Tablasssssss();
         ObservableList<Tablasssssss> itemsss=Taa.getTablasssssss();
         this.Tabla.setItems(itemsss);
+        }catch(SQLException ex){
+		System.out.println("No Modificado");
+		Logger lo = Logger.getLogger(Conexion.class.getName());
+		lo.log(Level.SEVERE, ex.getMessage(), ex);
+	    }   
 	}
          if(NOO){
 		 System.out.println(Text.getText());
 		 
-                 Conexion.writeToUpdate6(Activi, NO);
+                String url = "jdbc:postgresql://localhost:5432/administrador";
+		String user = "postgres";
+		String password = "Ale0107";
+		String query="UPDATE recursos  SET Estadoe='"+Activi+"' WHERE Recurso='"+NO+"' ";
+		
+		try{
+                Connection c = DriverManager.getConnection(url,user,password);
+		PreparedStatement p = c.prepareStatement(query);
+		p.executeUpdate();
+		System.out.println("Modificado");
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
-	a.setContentText("Agregado");
+	a.setContentText("Rechazado");
 	a.showAndWait();
         Text.setText("");
         aprobar.setSelected(false);
@@ -159,6 +189,11 @@ public class RecepcionController implements Initializable {
         Tablasssssss Taa= new Tablasssssss();
         ObservableList<Tablasssssss> itemsss=Taa.getTablasssssss();
         this.Tabla.setItems(itemsss);
+        }catch(SQLException ex){
+		System.out.println("No Modificado");
+		Logger lo = Logger.getLogger(Conexion.class.getName());
+		lo.log(Level.SEVERE, ex.getMessage(), ex);
+	    }   
        }  
     }
     }catch (Exception e) {}
@@ -168,6 +203,7 @@ public class RecepcionController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 Tablasssssss T= Tabla.getItems().get(Tabla.getSelectionModel().getSelectedIndex());
+                Text1.setText(T.getCodigo());
                 Text.setText(T.getRecurso());
             }
             });

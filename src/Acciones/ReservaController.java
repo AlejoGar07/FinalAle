@@ -1,6 +1,6 @@
 package Acciones;
 
-import Tabla.Tablassss;
+import Tabla.Tablasssss;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
@@ -17,34 +17,34 @@ import javafx.stage.Stage;
 public class ReservaController implements Initializable {
 
     @FXML
-    private TableView<Tablassss> Tabla;
+    private TableView<Tablasssss> Tabla;
     @FXML
-    private TableColumn<Tablassss, String> organi;
+    private TableColumn<Tablasssss, String> organi;
     @FXML
-    private TableColumn<Tablassss, String> recu;
+    private TableColumn<Tablasssss, String> recu;
     @FXML
-    private TableColumn<Tablassss, String> activ;
+    private TableColumn<Tablasssss, String> activ;
     @FXML
-    private TableColumn<Tablassss, String> descri;
+    private TableColumn<Tablasssss, String> descri;
     @FXML
-    private TableColumn<Tablassss, String> aprob;
+    private TableColumn<Tablasssss, String> aprob;
     @FXML
-    private TableColumn<Tablassss, String> confir;
+    private TableColumn<Tablasssss, String> confir;
     @FXML
-    private TableColumn<Tablassss, Date> fecha;
+    private TableColumn<Tablasssss, Date> fecha;
     @FXML
-    private TableColumn<Tablassss, Date> fecha1;
+    private TableColumn<Tablasssss, Date> fecha1;
     @FXML
-    private TableColumn<Tablassss, Integer> horai;
+    private TableColumn<Tablasssss, Integer> horai;
     @FXML
-    private TableColumn<Tablassss, Integer> horaf;
+    private TableColumn<Tablasssss, Integer> horaf;
     @FXML
     private Button regresar;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Tablassss T= new Tablassss();
-        ObservableList<Tablassss> items=T.getTablasss();
+        Tablasssss T= new Tablasssss();
+        ObservableList<Tablasssss> items=T.getTablassss();
         this.organi.setCellValueFactory(new PropertyValueFactory("organizacion"));
         this.recu.setCellValueFactory(new PropertyValueFactory("recurso"));
         this.activ.setCellValueFactory(new PropertyValueFactory("actividad"));

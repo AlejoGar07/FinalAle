@@ -40,7 +40,7 @@ public class recurso {
 	       String url = "jdbc:postgresql://localhost:5432/administrador";
 	       String user = "postgres";
 	       String password = "Ale0107";
-	       String s = ("select * from usuarios where Organizacion='"+organizacion+"' and Tipo='"+"Revisor de Recursos"+"'");
+	       String s = ("select * from usuarios where Organizacion='"+organizacion+"' and Tipo='"+"Revisor de Recursos"+"' and Estado='"+"Activo"+"'");
 	        Connection con = DriverManager.getConnection(url,user,password);
 		PreparedStatement P = con.prepareStatement(s);
 	        ResultSet rs=P.executeQuery();
@@ -63,7 +63,7 @@ public class recurso {
 	       String url = "jdbc:postgresql://localhost:5432/administrador";
 	       String user = "postgres";
 	       String password = "Ale0107";
-	       String s = ("select * from usuarios where Organizacion='"+organizacion+"' and Tipo='"+"Revisor de Recursos"+"'");
+	       String s = ("select * from usuarios where Organizacion='"+organizacion+"' and Tipo='"+"Revisor de Recursos"+"' and Estado='"+"Activo"+"';");
 	        Connection con = DriverManager.getConnection(url,user,password);
 		PreparedStatement P = con.prepareStatement(s);
 	        ResultSet rs=P.executeQuery();
@@ -86,7 +86,7 @@ public class recurso {
 	       String url = "jdbc:postgresql://localhost:5432/administrador";
 	       String user = "postgres";
 	       String password = "Ale0107";
-	       String s = ("select * from usuarios where Organizacion='"+organizacion+"' and Tipo='"+"Recepción de Recursos"+"';");
+	       String s = ("select * from usuarios where Organizacion='"+organizacion+"' and Tipo='"+"Recepción de Recursos"+"' and Estado='"+"Activo"+"';");
 	        Connection con = DriverManager.getConnection(url,user,password);
 		PreparedStatement P = con.prepareStatement(s);
 	        ResultSet rs=P.executeQuery();
@@ -108,7 +108,7 @@ public class recurso {
 	       String url = "jdbc:postgresql://localhost:5432/administrador";
 	       String user = "postgres";
 	       String password = "Ale0107";
-	       String s = ("select * from usuarios where Organizacion='"+organizacion+"' and Tipo='"+"Recepción de Recursos"+"';");
+	       String s = ("select * from usuarios where Organizacion='"+organizacion+"' and Tipo='"+"Recepción de Recursos"+"' and Estado='"+"Activo"+"';");
 	        Connection con = DriverManager.getConnection(url,user,password);
 		PreparedStatement P = con.prepareStatement(s);
 	        ResultSet rs=P.executeQuery();

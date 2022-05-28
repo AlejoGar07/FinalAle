@@ -53,8 +53,27 @@ public class AdminController implements Initializable {
         String User=Usuario.getText();
         String Password=Contra.getText();
         
-        if(User.equals("")&&Password.equals("")){
+        if(User.equals("admin")&&Password.equals("admin")){
             System.out.println(User + Password);
+                    Alert a=new Alert(Alert.AlertType.INFORMATION);
+                    a.setHeaderText(null);
+                    a.setTitle("CORRECTO");
+                    a.setContentText("Ingreso Correcto");
+                    a.showAndWait();
+                    try{
+			FXMLLoader cargar= new FXMLLoader();
+			 cargar.setLocation(ProyectoFinal.class.getResource("/Vistas/Menu.fxml"));
+			 Parent root = cargar.load();
+			 Scene scene = new Scene (root);
+			 Stage stage= new Stage();
+			 stage.setScene(scene);
+			 stage.showAndWait();
+                         stage.close();
+                         Stage stagee= (Stage) this.b.getScene().getWindow();
+                         stagee.close();
+                    }catch(Exception e){
+			e.printStackTrace();
+		}
         }else{
             try{
                 

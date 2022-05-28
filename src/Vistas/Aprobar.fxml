@@ -61,16 +61,15 @@
                                     <Font size="13.0" />
                                  </font>
                               </Button>
-                              <TableView fx:id="Tabla" layoutX="64.0" layoutY="183.0" prefHeight="211.0" prefWidth="836.0">
+                              <TableView fx:id="Tabla" layoutX="100.0" layoutY="182.0" prefHeight="211.0" prefWidth="764.0">
                                  <columns>
                                     <TableColumn fx:id="organn" editable="false" prefWidth="120.0" resizable="false" text="Organizacion" />
                                     <TableColumn fx:id="recur" editable="false" prefWidth="120.0" resizable="false" text="Recurso" />
                                     <TableColumn fx:id="aprobaci" editable="false" prefWidth="90.0" resizable="false" text="Aprobacion" />
                                     <TableColumn fx:id="usua" editable="false" prefWidth="120.0" resizable="false" text="Usuario Aprobar" />
-                                    <TableColumn fx:id="entregaa" editable="false" minWidth="0.0" prefWidth="90.0" resizable="false" text="Entrega" />
-                                    <TableColumn fx:id="usuae" editable="false" prefWidth="120.0" resizable="false" text="Usuario Entregar" />
-                                    <TableColumn fx:id="tiemp" editable="false" prefWidth="90.0" resizable="false" text="Tiempo de Uso" />
-                                    <TableColumn fx:id="costo" editable="false" prefWidth="70.0" resizable="false" text="Costo" />
+                                    <TableColumn fx:id="esta" editable="false" minWidth="0.0" prefWidth="90.0" resizable="false" text="Estado" />
+                                    <TableColumn fx:id="tiemp" editable="false" prefWidth="120.0" resizable="false" text="Tiempo de Uso" />
+                                    <TableColumn fx:id="costo" editable="false" prefWidth="90.0" resizable="false" text="Costo" />
                                  </columns>
                               </TableView>
                            </children>

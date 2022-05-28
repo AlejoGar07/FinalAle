@@ -201,7 +201,6 @@ public class RevicionController implements Initializable {
       Fecha=fecha.getValue();
       Horai=Integer.parseInt(Text1.getText());
       Horaf=Integer.parseInt(Text2.getText());
-      
 	  if(si.isSelected()){
 		 SI="Si Necesita";
                  NO="Pendiente";
@@ -307,6 +306,10 @@ public class RevicionController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 Tablasssss T= Tabla.getItems().get(Tabla.getSelectionModel().getSelectedIndex());
+                box2.setPromptText(T.getOrganizacion());
+                Text8.setText(T.getOrganizacion());
+                box3.setPromptText(T.getRecurso());
+                Text9.setText(T.getRecurso());
                 Text5.setText(T.getActividad());
                 TextArea1.setText(T.getDescripcion());
                 Text6.setText(T.getHorai());
@@ -316,7 +319,110 @@ public class RevicionController implements Initializable {
 	}
     @FXML
     private void modificar(ActionEvent event) {
-        
+    Conexion conect= new Conexion();
+    try{
+    if(Text5.getText().equals("") || TextArea1.getText().equals("") || Text6.getText().equals("") || Text7.getText().equals("") || Text8.getText().equals("") || Text9.getText().equals("") ){
+	   Alert a=new Alert(Alert.AlertType.ERROR);
+	   a.setHeaderText(null);
+	   a.setTitle("ERROR");
+	   a.setContentText("Debe Ingresar Todos los datos");
+	   a.showAndWait();
+     }else{
+      String SII=null;
+      String NOO=null;
+      String Organi="";
+      String Recur="";
+      String Activi="";
+      String Descri="";
+      String Direc="";
+      LocalDate Fecha;
+      int Horai=0;
+      int Horaf=0;
+      Organi=Text8.getText();
+      Recur=Text9.getText();
+      Activi=Text5.getText();
+      Descri=TextArea1.getText();
+      Fecha=fecha1.getValue();
+      Horai=Integer.parseInt(Text6.getText());
+      Horaf=Integer.parseInt(Text7.getText());
+      
+	  if(si1.isSelected()){
+		 SII="Si Necesita";
+                 NOO="Pendiente";
+                 SIII=true;
+          }else{
+                 SIII=false;
+               }
+          if(no1.isSelected()){
+                 SII="No Necesita";
+                 NOO="Aprobada";
+                 NOOO=true;
+          }else{
+                 NOOO=false;
+               }
+          
+         if(SIII){
+		 System.out.println(Text8.getText());
+		 System.out.println(Text9.getText());
+                 System.out.println(Text5.getText());
+                 System.out.println(Fecha);
+                 System.out.println(TextArea1.getText());
+		 System.out.println(Text6.getText());
+                 System.out.println(Text7.getText());
+                 Conexion.writeToUpdate3(Organi, Recur, Activi, Descri, SII, NOO, Fecha, Horai, Horaf);
+	Alert a=new Alert(Alert.AlertType.INFORMATION);
+	a.setHeaderText(null);
+	a.setTitle("CORRECTO");
+	a.setContentText("Agregado");
+	a.showAndWait();
+        Text8.setText("");
+        Text9.setText("");
+        Text5.setText("");
+        Text6.setText("");
+        Text7.setText("");
+        TextArea1.setText("");
+	si1.setSelected(false);
+        box2.setValue(null);
+        box3.setValue(null);
+        fecha1.setValue(null);
+        box2.setPromptText(null);
+        box3.setPromptText(null);
+        initcombo();
+        Tablasssss T= new Tablasssss();
+        ObservableList<Tablasssss> items=T.getTablassss();
+        this.Tabla.setItems(items);
+	}
+         if(NOOO){
+		 System.out.println(Text8.getText());
+		 System.out.println(Text9.getText());
+                 System.out.println(Text5.getText());
+                 System.out.println(Fecha);
+                 System.out.println(TextArea1.getText());
+		 System.out.println(Text6.getText());
+                 System.out.println(Text7.getText());	
+                 Conexion.writeToUpdate3(Organi, Recur, Activi, Descri, SII, NOO, Fecha, Horai, Horaf);
+	Alert a=new Alert(Alert.AlertType.INFORMATION);
+	a.setHeaderText(null);
+	a.setTitle("CORRECTO");
+	a.setContentText("Agregado");
+	a.showAndWait();
+       Text8.setText("");
+        Text9.setText("");
+        Text5.setText("");
+        Text6.setText("");
+        Text7.setText("");
+        TextArea1.setText("");
+	si1.setSelected(false);
+        box2.setValue(null);
+        box3.setValue(null);
+        fecha1.setValue(null);
+        initcombo();
+        Tablasssss T= new Tablasssss();
+        ObservableList<Tablasssss> items=T.getTablassss();
+        this.Tabla.setItems(items);
+	}  
+    }
+    }catch (Exception e) {}
     }
     @FXML
     private void cambio(Event event) {

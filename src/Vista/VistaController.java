@@ -107,4 +107,19 @@ public class VistaController implements Initializable {
 			e.printStackTrace();
 		}
         }
+
+    @FXML
+    private void reporte(ActionEvent event) {
+        try{
+			FXMLLoader cargar= new FXMLLoader();
+			cargar.setLocation(ProyectoFinal.class.getResource("/Vistas/Reportes.fxml"));
+			Parent root = cargar.load();
+			Scene scene = new Scene (root);
+			Stage stage= new Stage();
+			stage.setScene(scene);
+			stage.showAndWait();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+    }
 }

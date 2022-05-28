@@ -39,7 +39,7 @@ public class combos {
 	       String url = "jdbc:postgresql://localhost:5432/administrador";
 	       String user = "postgres";
 	       String password = "Ale0107";
-	       String s = ("select * from organizaciones order by Codigo");
+	       String s = ("select * from organizaciones where Estado='"+"Activo"+"'");
 	        Connection con = DriverManager.getConnection(url,user,password);
 		PreparedStatement P = con.prepareStatement(s);
 	        ResultSet rs=P.executeQuery();

@@ -2,9 +2,15 @@ package Acciones;
 
 import Tabla.Tablassss;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -133,13 +139,21 @@ public class RevicionesController implements Initializable {
                }
           
         if(SII){
-		 System.out.println(Text.getText());
-		 
-                 Conexion.writeToUpdate4(Activi, SI);
+		System.out.println(Text.getText());
+		String url = "jdbc:postgresql://localhost:5432/administrador";
+		String user = "postgres";
+		String password = "Ale0107";
+		String query="UPDATE recursos  SET Estadoe='"+Activi+"' WHERE Recurso='"+SI+"' ";
+		
+		try{
+                Connection c = DriverManager.getConnection(url,user,password);
+		PreparedStatement p = c.prepareStatement(query);
+		p.executeUpdate();
+		System.out.println("Modificado");
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
-	a.setContentText("Modificar");
+	a.setContentText("Aprobado");
 	a.showAndWait();
         Text.setText("");
         aprobar.setSelected(false);
@@ -147,15 +161,29 @@ public class RevicionesController implements Initializable {
         Tablassss T= new Tablassss();
         ObservableList<Tablassss> items=T.getTablasss();
         this.Tabla.setItems(items);
+            }catch(SQLException ex){
+		System.out.println("No Modificado");
+		Logger lo = Logger.getLogger(Conexion.class.getName());
+		lo.log(Level.SEVERE, ex.getMessage(), ex);
+	    }   
 	}
          if(NOO){
-		 System.out.println(Text.getText());
+		System.out.println(Text.getText());
 		 
-                 Conexion.writeToUpdate4(Activi, NO);
+                String url = "jdbc:postgresql://localhost:5432/administrador";
+		String user = "postgres";
+		String password = "Ale0107";
+		String query="UPDATE recursos  SET Estadoe='"+Activi+"' WHERE Recurso='"+NO+"' ";
+		
+		try{
+                Connection c = DriverManager.getConnection(url,user,password);
+		PreparedStatement p = c.prepareStatement(query);
+		p.executeUpdate();
+		System.out.println("Modificado");
 	Alert a=new Alert(Alert.AlertType.INFORMATION);
 	a.setHeaderText(null);
 	a.setTitle("CORRECTO");
-	a.setContentText("Agregado");
+	a.setContentText("Rechazado");
 	a.showAndWait();
         Text.setText("");
         aprobar.setSelected(false);
@@ -163,6 +191,11 @@ public class RevicionesController implements Initializable {
         Tablassss T= new Tablassss();
         ObservableList<Tablassss> items=T.getTablasss();
         this.Tabla.setItems(items);
+            }catch(SQLException ex){
+		System.out.println("No Modificado");
+		Logger lo = Logger.getLogger(Conexion.class.getName());
+		lo.log(Level.SEVERE, ex.getMessage(), ex);
+	    }   
        }  
     }
     }catch (Exception e) {}

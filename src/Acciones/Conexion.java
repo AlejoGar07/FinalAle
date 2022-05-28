@@ -24,7 +24,7 @@ public class Conexion {
 	String user = "postgres";
 	String password = "Ale0107";
 	
-	String sql="SELECT Codigo FROM Organizaciones";
+	String sql="SELECT Codigo FROM Organizaciones order by Codigo";
 	try{
 		c=DriverManager.getConnection(url,user,password);
 		p = c.prepareStatement(sql);
@@ -46,7 +46,7 @@ public class Conexion {
 	String user = "postgres";
 	String password = "Ale0107";
 	
-	String sql="SELECT Codigo FROM usuarios";
+	String sql="SELECT Codigo FROM usuarios order by Codigo";
 	try{
 		c=DriverManager.getConnection(url,user,password);
 		p = c.prepareStatement(sql);
@@ -67,7 +67,7 @@ public class Conexion {
 	String user = "postgres";
 	String password = "Ale0107";
 	
-	String sql="SELECT Codigo FROM recursos";
+	String sql="SELECT Codigo FROM recursos order by Codigo";
 	try{
 		c=DriverManager.getConnection(url,user,password);
 		p = c.prepareStatement(sql);
@@ -88,7 +88,7 @@ public class Conexion {
 	String user = "postgres";
 	String password = "Ale0107";
 	
-	String sql="SELECT Codigo FROM solicitudes";
+	String sql="SELECT Codigo FROM solicitudes order by Codigo";
 	try{
 		c=DriverManager.getConnection(url,user,password);
 		p = c.prepareStatement(sql);
@@ -113,7 +113,7 @@ public class Conexion {
 	    int Telefono=usertelefono;
 	    String Correo=usercorreo;
 	    String Estado=userestado;
-	    String query="INSERT INTO organizaciones(Codigo, Organizacion, Direccion, Telefono, Correo, Estado) VALUES(?, ?, ?, ?, ?, ?)";
+	    String query="INSERT INTO organizaciones(Codigo, Organizacion, Direccion, Telefono, Correo, Estado, Fecha) VALUES(?, ?, ?, ?, ?, ?, ?)";
 	    try(Connection c = DriverManager.getConnection(url,user,password);
 		PreparedStatement p = c.prepareStatement(query)){
 		
@@ -123,6 +123,7 @@ public class Conexion {
 		p.setInt(4, Telefono);
 		p.setString(5, Correo);
 		p.setString(6, Estado);
+                p.setObject(7, LocalDateTime.now());
 		p.executeUpdate();
 		System.out.println("Agregado");
 	    }catch(SQLException ex){
@@ -247,7 +248,7 @@ public class Conexion {
 	    String Direccion=userdireccion;
 	    String Estado=userestado;
 	    ResultSet R=null;
-	    String query="INSERT INTO usuarios(Codigo, Tipo, Usuario, Contraseña, Organizacion, Nombre, Correo, Telefono, Direccion, Estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	    String query="INSERT INTO usuarios(Codigo, Tipo, Usuario, Contraseña, Organizacion, Nombre, Correo, Telefono, Direccion, Estado, Fecha) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	    try(Connection c = DriverManager.getConnection(url,user,password);
 		PreparedStatement p = c.prepareStatement(query)){
 		
@@ -261,6 +262,7 @@ public class Conexion {
 		p.setInt(8, Telefono);
 		p.setString(9, Direccion);
 		p.setString(10, Estado);
+                p.setObject(11, LocalDateTime.now());
 		p.executeUpdate();
 		System.out.println("Agregado");
 	    }catch(SQLException ex){
@@ -376,7 +378,7 @@ public class Conexion {
             String Estado=estado;
             
 	    ResultSet R=null;
-	    String query="INSERT INTO recursos(Codigo, Organizacion, Recurso, Aprobacion, Usuarioa, Estadoa, Entrega, Usuarioe, Estadoe, Tiempo, Costo, Estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	    String query="INSERT INTO recursos(Codigo, Organizacion, Recurso, Aprobacion, Usuarioa, Estadoa, Entrega, Usuarioe, Estadoe, Tiempo, Costo, Estado, Fecha) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	    try(Connection c = DriverManager.getConnection(url,user,password);
 		PreparedStatement p = c.prepareStatement(query)){
 		
@@ -392,6 +394,7 @@ public class Conexion {
 		p.setInt(10, Tiempo);
 		p.setString(11, Costo);
                 p.setString(12, Estado);
+                p.setObject(13, LocalDateTime.now());
 		p.executeUpdate();
 		System.out.println("Agregado");
 	    }catch(SQLException ex){
@@ -522,13 +525,52 @@ public class Conexion {
 		lo.log(Level.SEVERE, ex.getMessage(), ex);
 	    }
 	}
+        public static void writeToUpdate3(String orga, String recur, String acti, String descri, String aproba, String confi, LocalDate fecha, int horai, int horaf){
+		String url = "jdbc:postgresql://localhost:5432/administrador";
+		String user = "postgres";
+		String password = "Ale0107";
+                String Organ=orga;
+                String Recurs=recur;
+		String Acti=acti;
+                String Desc=descri;
+                String Apro=aproba;
+		String Confi=confi;
+                LocalDate Fecha=fecha;
+                int Horai=horai;
+		int Horaf=horaf;
+                
+                 
+		String query="UPDATE solicitudes  SET Organizacion=?, Recurso=?, Descripcion=?, Aprobacion=?, Confirmacion=?, Fecha=?, Horai=?, Horaf=?, Fechas=? WHERE Actividad=? ";
+		
+		try{
+                Connection c = DriverManager.getConnection(url,user,password);
+		PreparedStatement p = c.prepareStatement(query);
+		p.setString(1, Organ);
+		p.setString(2, Recurs);
+                p.setString(3, Desc);
+                p.setString(4, Apro);
+		p.setString(5, Confi);
+                 p.setDate(6, (java.sql.Date.valueOf(Fecha)));
+                p.setInt(7, Horai);
+                p.setInt(8, Horaf);
+                p.setObject(9, LocalDate.now());
+                p.setString(10, Acti);
+		p.executeUpdate();
+		System.out.println("Modificado");
+	    }catch(SQLException ex){
+		System.out.println("No Modificado");
+		Logger lo = Logger.getLogger(Conexion.class.getName());
+		lo.log(Level.SEVERE, ex.getMessage(), ex);
+	    }   
+        }
+        
         public static void writeToUpdate4(String acti, String confi){
 		String url = "jdbc:postgresql://localhost:5432/administrador";
 		String user = "postgres";
 		String password = "Ale0107";
                 String Acti=acti;
 		String Confi=confi;
-		String query="UPDATE solicitudes  SET Confirmacion=? WHERE Actividad=? ";
+		String query="UPDATE solicitudes  SET Confirmacion=? WHERE Actividad=?";
 		
 		try{
                 Connection c = DriverManager.getConnection(url,user,password);
@@ -564,26 +606,4 @@ public class Conexion {
 		lo.log(Level.SEVERE, ex.getMessage(), ex);
 	    }   
         }
-        public static void writeToUpdate6(String acti, String confi){
-		String url = "jdbc:postgresql://localhost:5432/administrador";
-		String user = "postgres";
-		String password = "Ale0107";
-                String Acti=acti;
-		String Confi=confi;
-		String query="UPDATE recursos  SET Estadoe=? WHERE Recurso=? ";
-		
-		try{
-                Connection c = DriverManager.getConnection(url,user,password);
-		PreparedStatement p = c.prepareStatement(query);
-		p.setString(1, Confi);
-                p.setString(2, Acti);
-		p.executeUpdate();
-		System.out.println("Modificado");
-	    }catch(SQLException ex){
-		System.out.println("No Modificado");
-		Logger lo = Logger.getLogger(Conexion.class.getName());
-		lo.log(Level.SEVERE, ex.getMessage(), ex);
-	    }   
-        }
-         
 }

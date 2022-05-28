@@ -15,6 +15,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Tablasssssss {
+        private String Codigo;
         private String Organizacion;
         private String Recurso;
         private String Aprobacion;
@@ -29,7 +30,8 @@ public class Tablasssssss {
         
         public Tablasssssss() {
         }
-        public Tablasssssss(String organizacion, String recurso, String aprobacion, String usuarioa, String estadoa, String entrega, String usuarioe, String estadoe, String tiempo, String costo, String estado){
+        public Tablasssssss(String codigo, String organizacion, String recurso, String aprobacion, String usuarioa, String estadoa, String entrega, String usuarioe, String estadoe, String tiempo, String costo, String estado){
+                this.Codigo=codigo;
                 this.Organizacion=organizacion;
                 this.Recurso=recurso;
                 this.Aprobacion=aprobacion;
@@ -43,6 +45,13 @@ public class Tablasssssss {
                 this.Estado=estado;
         }
 
+    public String getCodigo() {
+        return Codigo;
+    }
+
+    public void setCodigo(String Codigo) {
+        this.Codigo = Codigo;
+    }
     public String getOrganizacion() {
         return Organizacion;
     }
@@ -133,7 +142,7 @@ public class Tablasssssss {
     public ObservableList<Tablasssssss> getTablasssssss(){
 	       ObservableList<Tablasssssss> O = FXCollections.observableArrayList();
 	       try{
-	       String s = ("select Organizacion, Recurso, Aprobacion, Usuarioa, Estadoa, Entrega, Usuarioe, Estadoe, Tiempo, Costo, Estado from recursos where Entrega= '"+"Si Necesita"+"' and Estadoe= '"+"Pendiente"+"' and Estado= '"+"Activo"+"' order by Codigo");
+	       String s = ("select Codigo, Organizacion, Recurso, Aprobacion, Usuarioa, Estadoa, Entrega, Usuarioe, Estadoe, Tiempo, Costo, Estado from recursos where Entrega= '"+"Si Necesita"+"' and Estadoe= '"+"Pendiente"+"' and Estado= '"+"Activo"+"' order by Codigo");
 	       Connection con=null;
 	       PreparedStatement  P=null;
 	       ResultSet rs=null;
@@ -146,6 +155,7 @@ public class Tablasssssss {
 	        rs=P.executeQuery();
 	       
 	       while (rs.next()){
+                      String codi=rs.getString("Codigo");
                       String orga=rs.getString("Organizacion");
                       String recur=rs.getString("Recurso");
 		      String apro=rs.getString("Aprobacion");
@@ -159,7 +169,7 @@ public class Tablasssssss {
                       String esta=rs.getString("Estado");
 		      
 		      
-		      Tablasssssss t = new Tablasssssss(orga, recur, apro, usua, estaa, entre, usue, estae, tiem, cost, esta);
+		      Tablasssssss t = new Tablasssssss(codi,orga, recur, apro, usua, estaa, entre, usue, estae, tiem, cost, esta);
 		      O.add(t);
 	       }
 	       

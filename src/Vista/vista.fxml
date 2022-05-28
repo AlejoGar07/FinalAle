@@ -32,6 +32,11 @@
               <MenuItem mnemonicParsing="false" onAction="#pendiente" text="Solicitudes de Reserva Pendientes" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Reportes">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#reporte" text="Reportes" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>

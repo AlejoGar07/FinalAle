@@ -65,7 +65,7 @@ public class RecepcioonController implements Initializable {
                 String url = "jdbc:postgresql://localhost:5432/administrador";
                 String user = "postgres";
                 String password = "Ale0107";
-                String s = ("select * from usuarios where Tipo='"+"Recepción de Recursos"+"' and nombre=? and Contraseña=?");
+                String s = ("select * from usuarios where Tipo='"+"Recepción de Recursos"+"' and nombre=? and Contraseña=? and Estado='"+"Activo"+"'");
 	        Connection con = DriverManager.getConnection(url,user,password);
 		PreparedStatement P = con.prepareStatement(s);
                 P.setString(1, User);

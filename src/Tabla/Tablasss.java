@@ -20,10 +20,11 @@ public class Tablasss {
 	private String Tiempo;
 	private String Costo;
         private String Estado;
+        private String Fecha;
         
         public Tablasss() {
         }
-        public Tablasss(String organizacion, String recurso, String aprobacion, String usuarioa, String entrega, String usuarioe, String tiempo, String costo, String estado){
+        public Tablasss(String organizacion, String recurso, String aprobacion, String usuarioa, String entrega, String usuarioe, String tiempo, String costo, String estado, String fecha){
                 this.Organizacion=organizacion;
                 this.Recurso=recurso;
                 this.Aprobacion=aprobacion;
@@ -33,6 +34,7 @@ public class Tablasss {
                 this.Tiempo=tiempo;
                 this.Costo=costo;
                 this.Estado=estado;
+                this.Fecha=fecha;
         }
 
     public String getOrganizacion() {
@@ -104,10 +106,19 @@ public class Tablasss {
     public void setEstado(String Estado) {
         this.Estado = Estado;
     }
+
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(String Fecha) {
+        this.Fecha = Fecha;
+    }
+    
     public ObservableList<Tablasss> getTablass(){
 	       ObservableList<Tablasss> O = FXCollections.observableArrayList();
 	       try{
-	       String s = ("select Organizacion, Recurso, Aprobacion, Usuarioa, Entrega, Usuarioe, Tiempo, Costo, Estado"
+	       String s = ("select Organizacion, Recurso, Aprobacion, Usuarioa, Entrega, Usuarioe, Tiempo, Costo, Estado, Fecha"
 		       + " from recursos order by Codigo");
 	       Connection con=null;
 	       PreparedStatement  P=null;
@@ -130,9 +141,10 @@ public class Tablasss {
 		      String tiem=rs.getString("Tiempo");
 		      String cost=rs.getString("Costo");
                       String esta=rs.getString("Estado");
+                      String fecha=rs.getString("Fecha");
 		      
 		      
-		      Tablasss t = new Tablasss(orga, recur, apro, usua, entre, usue, tiem, cost, esta);
+		      Tablasss t = new Tablasss(orga, recur, apro, usua, entre, usue, tiem, cost, esta, fecha);
 		      O.add(t);
 	       }
 	       

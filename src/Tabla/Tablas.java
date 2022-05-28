@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -17,15 +18,17 @@ public class Tablas {
 	private String Telefono;
 	private String Correo;
 	private String Estado;
+        private String Fecha;
 
 	public Tablas(){
 	}
-	public Tablas(String organizacion, String direccion, String telefono, String correo, String estado){
+	public Tablas(String organizacion, String direccion, String telefono, String correo, String estado, String fecha){
 		this.Organizacion = organizacion;
 		this.Direccion = direccion;
 		this.Telefono = telefono;
 		this.Correo = correo;
 		this.Estado = estado;
+                this.Fecha=fecha;
 	}
 
 	public String getOrganizacion() {
@@ -67,12 +70,19 @@ public class Tablas {
 	public void setEstado(String estado) {
 		this.Estado = estado;
 	}
-	
-	
+
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(String Fecha) {
+        this.Fecha = Fecha;
+    }
+
 	public ObservableList<Tablas> getTabla(){
 	       ObservableList<Tablas> O = FXCollections.observableArrayList();
 	       try{
-	       String s = ("select Organizacion, Direccion, Telefono, Correo, Estado"
+	       String s = ("select Organizacion, Direccion, Telefono, Correo, Estado, Fecha"
 		       + " from organizaciones order by Codigo");
 	       Connection con=null;
 	       PreparedStatement  P=null;
@@ -91,8 +101,9 @@ public class Tablas {
 		      String tel=rs.getString("Telefono");
 		      String corr=rs.getString("Correo");
 		      String esta=rs.getString("Estado");
+                      String fechaa=rs.getString("Fecha");
 		      
-		      Tablas t = new Tablas(orga, direc, tel, corr, esta);
+		      Tablas t = new Tablas(orga, direc, tel, corr, esta, fechaa);
 		      O.add(t);
 	       }
 	       

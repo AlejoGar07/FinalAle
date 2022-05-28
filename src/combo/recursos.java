@@ -37,7 +37,7 @@ public recursos() {
 	       String url = "jdbc:postgresql://localhost:5432/administrador";
 	       String user = "postgres";
 	       String password = "Ale0107";
-	       String s = ("select * from recursos where Organizacion='"+organizacion+"';");
+	       String s = ("select * from recursos where Organizacion='"+organizacion+"' and Estado='"+"Activo"+"'");
 	        Connection con = DriverManager.getConnection(url,user,password);
 		PreparedStatement P = con.prepareStatement(s);
 	        ResultSet rs=P.executeQuery();

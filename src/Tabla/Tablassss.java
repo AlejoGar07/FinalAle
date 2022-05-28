@@ -123,7 +123,7 @@ public class Tablassss {
     public ObservableList<Tablassss> getTablasss(){
 	       ObservableList<Tablassss> O = FXCollections.observableArrayList();
 	       try{
-	       String s = ("select Organizacion, Recurso, Actividad, Descripcion, Aprobacion, Confirmacion, Fecha, Horai, Horaf, Fechas from solicitudes where Aprobacion= '"+"Si Necesita"+"' order by Codigo");
+	       String s = ("select Organizacion, Recurso, Actividad, Descripcion, Aprobacion, Confirmacion, Fecha, Horai, Horaf, Fechas from solicitudes where Aprobacion= '"+"Si Necesita"+"' and Confirmacion= '"+"Pendiente"+"' order by Codigo");
 	       Connection con=null;
 	       PreparedStatement  P=null;
 	       ResultSet rs=null;
@@ -146,7 +146,6 @@ public class Tablassss {
 		      String horai=rs.getString("Horai");
                       String horaf=rs.getString("Horaf");
                       Date fechas=rs.getDate("Fechas");
-		      
 		      
 		      Tablassss t = new Tablassss(orga, recur, acti, descri, aprob, confi, fecha, horai, horaf, fechas);
 		      O.add(t);

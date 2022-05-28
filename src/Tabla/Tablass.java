@@ -20,10 +20,11 @@ public class Tablass {
 	private String Telefono;
 	private String Direccion;
         private String Estado;
+        private String Fecha;
 
         public Tablass() {
          }
-        public Tablass(String tipo, String usuario, String contraseña, String organizacion, String nombre, String correo, String telefono, String direccion, String estado){
+        public Tablass(String tipo, String usuario, String contraseña, String organizacion, String nombre, String correo, String telefono, String direccion, String estado, String fecha){
                 this.Tipo = tipo;
                 this.Usuario = usuario;
                 this.Contraseña = contraseña;
@@ -33,6 +34,7 @@ public class Tablass {
 		this.Telefono = telefono;
 		this.Direccion = direccion;
                 this.Estado = estado;
+                this.Fecha=fecha;
 	}
 
     public String getTipo() {
@@ -106,11 +108,19 @@ public class Tablass {
     public void setEstado(String Estado) {
         this.Estado = Estado;
     }
+
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(String Fecha) {
+        this.Fecha = Fecha;
+    }
     
     public ObservableList<Tablass> getTablas(){
 	       ObservableList<Tablass> O = FXCollections.observableArrayList();
 	       try{
-	       String s = ("select Tipo, Usuario, Contraseña, Organizacion, Nombre, Correo, Telefono, Direccion, Estado"
+	       String s = ("select Tipo, Usuario, Contraseña, Organizacion, Nombre, Correo, Telefono, Direccion, Estado, Fecha"
 		       + " from usuarios order by Codigo");
 	       Connection con=null;
 	       PreparedStatement  P=null;
@@ -133,9 +143,10 @@ public class Tablass {
 		      String tel=rs.getString("Telefono");
 		      String direc=rs.getString("Direccion");
                       String esta=rs.getString("Estado");
+                      String fechaa=rs.getString("Fecha");
 		      
 		      
-		      Tablass t = new Tablass(tip, usu, contr, orga, nom, corr, tel, direc, esta);
+		      Tablass t = new Tablass(tip, usu, contr, orga, nom, corr, tel, direc, esta, fechaa);
 		      O.add(t);
 	       }
 	       
